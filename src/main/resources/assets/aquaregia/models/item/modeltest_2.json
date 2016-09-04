@@ -1,0 +1,6 @@
+{
+	"parent": "aquaregia:item/modeltest",
+	"textures": {
+		"layer0": "aquaregia:items/modeltest_2"
+	}
+}

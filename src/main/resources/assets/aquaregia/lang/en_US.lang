@@ -1,0 +1,270 @@
+# Creative Tabs
+itemGroup.aquaregia=AquaRegia
+
+# Fluids
+fluid.static=Static Fluid
+fluid.normal=Normal Fluid
+fluid.static_gas=Static Gas
+fluid.normal_gas=Normal Gas
+fluid.finite=Finite Fluid
+fluid.portal_displacement=Portal Displacement Fluid
+
+# Blocks
+tile.aquaregia:watergrass.name=Water Grass
+tile.aquaregia:large_collision_test.name=Large Collision Test
+tile.aquaregia:right_click_test.name=Right Click Test
+tile.aquaregia:client_player_right_click.name=Client Player Right Click Block
+tile.aquaregia:rotatable_lamp.name=Rotatable Lamp
+tile.aquaregia:item_collision_test.name=Item Collision Test
+tile.aquaregia:survival_command_block.name=Survival Command Block
+tile.aquaregia:fluid_tank.name=Fluid Tank
+tile.aquaregia:item_debugger.name=Item Debugger
+tile.aquaregia:end_portal_frame_full.name=End Portal Frame Full
+tile.aquaregia:potion_effect.name=Potion Effect Block
+tile.aquaregia:client_player_rotation.name=Client Player Rotation Block
+tile.aquaregia:pig_spawner_refiller.name=Pig Spawner Refiller
+tile.aquaregia:mirror_plane.name=Mirror Plane
+tile.aquaregia:vanilla_model_test.name=Vanilla Model Test
+tile.aquaregia:fullbright.name=Fullbright Block
+tile.aquaregia:normal_brightness.name=Normal Brightness Block
+tile.aquaregia:max_health_setter.name=Max Health Setter
+tile.aquaregia:max_health_getter.name=Max Health Getter
+tile.aquaregia:small_collision_test.name=Small Collision Test
+tile.aquaregia:chest.name=Mod Chest
+tile.aquaregia:repeating_survival_command_block.name=Repeating Survival Command Block
+tile.aquaregia:chain_survival_command_block.name=Chain Survival Command Block
+tile.aquaregia:hidden.name=Hidden Block
+
+tile.aquaregia:basic_pipe.name=Basic Pipe
+tile.aquaregia:fluid_pipe.name=Fluid Pipe
+
+tile.aquaregia:fluid.static.name=Static Fluid
+tile.aquaregia:fluid.normal.name=Normal Fluid
+tile.aquaregia:fluid.static_gas.name=Static Gas
+tile.aquaregia:fluid.normal_gas.name=Normal Gas
+tile.aquaregia:fluid.finite.name=Finite Fluid
+tile.aquaregia:fluid.portal_displacement.name=Portal Displacement Fluid
+
+tile.aquaregia:colored_rotatable.name=Rotatable Block
+tile.aquaregia:colored_rotatable.white.name=White Rotatable Block
+tile.aquaregia:colored_rotatable.orange.name=Orange Rotatable Block
+tile.aquaregia:colored_rotatable.magenta.name=Magenta Rotatable Block
+tile.aquaregia:colored_rotatable.lightBlue.name=Light Blue Rotatable Block
+tile.aquaregia:colored_rotatable.yellow.name=Yellow Rotatable Block
+tile.aquaregia:colored_rotatable.lime.name=Lime Rotatable Block
+tile.aquaregia:colored_rotatable.pink.name=Pink Rotatable Block
+tile.aquaregia:colored_rotatable.gray.name=Gray Rotatable Block
+tile.aquaregia:colored_rotatable.silver.name=Light Gray Rotatable Block
+tile.aquaregia:colored_rotatable.cyan.name=Cyan Rotatable Block
+tile.aquaregia:colored_rotatable.purple.name=Purple Rotatable Block
+tile.aquaregia:colored_rotatable.blue.name=Blue Rotatable Block
+tile.aquaregia:colored_rotatable.brown.name=Brown Rotatable Block
+tile.aquaregia:colored_rotatable.green.name=Green Rotatable Block
+tile.aquaregia:colored_rotatable.red.name=Red Rotatable Block
+tile.aquaregia:colored_rotatable.black.name=Black Rotatable Block
+
+tile.aquaregia:colored_multi_rotatable.name=Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.white.name=White Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.orange.name=Orange Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.magenta.name=Magenta Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.lightBlue.name=Light Blue Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.yellow.name=Yellow Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.lime.name=Lime Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.pink.name=Pink Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.gray.name=Gray Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.silver.name=Light Gray Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.cyan.name=Cyan Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.purple.name=Purple Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.blue.name=Blue Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.brown.name=Brown Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.green.name=Green Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.red.name=Red Multi Rotatable Block
+tile.aquaregia:colored_multi_rotatable.black.name=Black Multi Rotatable Block
+
+tile.aquaregia:variants.name=Variants Block
+tile.aquaregia:variants.a.name=Variants Block - A
+tile.aquaregia:variants.b.name=Variants Block - B
+
+tile.aquaregia:stained_clay_slab.name=Stained Clay Slab
+tile.aquaregia:stained_clay_slab.white.name=White Stained Clay Slab
+tile.aquaregia:stained_clay_slab.orange.name=Orange Stained Clay Slab
+tile.aquaregia:stained_clay_slab.magenta.name=Magenta Stained Clay Slab
+tile.aquaregia:stained_clay_slab.lightBlue.name=Light Blue Stained Clay Slab
+tile.aquaregia:stained_clay_slab.yellow.name=Yellow Stained Clay Slab
+tile.aquaregia:stained_clay_slab.lime.name=Lime Stained Clay Slab
+tile.aquaregia:stained_clay_slab.pink.name=Pink Stained Clay Slab
+tile.aquaregia:stained_clay_slab.gray.name=Gray Stained Clay Slab
+tile.aquaregia:stained_clay_slab.silver.name=Light Gray Stained Clay Slab
+tile.aquaregia:stained_clay_slab.cyan.name=Cyan Stained Clay Slab
+tile.aquaregia:stained_clay_slab.purple.name=Purple Stained Clay Slab
+tile.aquaregia:stained_clay_slab.blue.name=Blue Stained Clay Slab
+tile.aquaregia:stained_clay_slab.brown.name=Brown Stained Clay Slab
+tile.aquaregia:stained_clay_slab.green.name=Green Stained Clay Slab
+tile.aquaregia:stained_clay_slab.red.name=Red Stained Clay Slab
+tile.aquaregia:stained_clay_slab.black.name=Black Stained Clay Slab
+
+# Items
+item.aquaregia:heavy.name=Heavy Item
+item.aquaregia:entity_interaction_test.name=Entity Interaction Test
+item.aquaregia:subscripts.name=Subscripts
+item.aquaregia:superscripts.name=Superscripts
+item.aquaregia:modeltest.name=Model Test
+item.aquaregia:snowball_launcher.name=Snowball Launcher
+item.aquaregia:slingshot.name=Slingshot
+item.aquaregia:entity_test.name=Entity Test
+item.aquaregia:block_destroyer.name=Block Destroyer
+item.aquaregia:wooden_axe.name=Wooden Cutting Axe
+item.aquaregia:unicode_tooltips.name=Unicode Tooltips
+item.aquaregia:swap_test_a.name=Swap Test A
+item.aquaregia:swap_test_b.name=Swap Test B
+item.aquaregia:block_debugger.name=Block Debugger
+item.aquaregia:wooden_harvest_sword.name=Wooden Harvest Sword
+item.aquaregia:diamond_harvest_sword.name=Diamond Harvest Sword
+item.aquaregia:clearer.name=Clearer
+item.aquaregia:bow.name=Mod Bow
+item.aquaregia:arrow.name=Mod Arrow
+item.aquaregia:height_tester.name=Height Tester
+item.aquaregia:pig_spawner.finite.name=Finite Pig Spawner
+item.aquaregia:pig_spawner.infinite.name=Infinite Pig Spawner
+item.aquaregia:continuous_bow.name=Continuous Bow
+item.aquaregia:respawner.name=Respawner
+item.aquaregia:loot_table_test.name=Loot Table Test
+item.aquaregia:max_health_setter_item.name=Max Health Setter
+item.aquaregia:max_health_getter_item.name=Max Health Getter
+item.aquaregia:gun.name=Gun
+item.aquaregia:dimension_replacement.name=Dimension Replacement
+item.aquaregia:saddle.name=Mod Saddle
+item.aquaregia:wooden_slow_sword.name=Slow Wooden Sword
+item.aquaregia:diamond_slow_sword.name=Slow Diamond Sword
+item.aquaregia:ritual_checker.name=Ritual Checker
+item.aquaregia:hidden_block_revealer.name=Hidden Block Revealer
+
+item.aquaregia:replacement_helmet.name=Armour Replacement Helmet
+item.aquaregia:replacement_chestplate.name=Armour Replacement Chestplate
+item.aquaregia:replacement_leggings.name=Armour Replacement Leggings
+item.aquaregia:replacement_boots.name=Armour Replacement Boots
+
+item.aquaregia:variants_item.name=Variants Item
+item.aquaregia:variants_item.a.name=Variants Item - A
+item.aquaregia:variants_item.b.name=Variants Item - B
+item.aquaregia:variants_item.c.name=Variants Item - C
+
+# Tooltips
+item.record.aquaregia:solaris.desc=Solaris (Path of Exile)
+item.aquaregia:unicode_tooltips.1.desc=§a§oLine 1 (Section Characters in Lang File)§r
+item.aquaregia:unicode_tooltips.2.desc=Line 2 (Section Characters in Code)
+item.aquaregia:unicode_tooltips.3.desc=Line 3 (EnumChatFormatting)
+item.aquaregia:swap_test.with_item.desc=Shift-right click to convert to %s
+item.aquaregia:swap_test.without_item.desc=No conversion defined for this item
+tile.aquaregia:fluid_tank.fluid.desc=%s (%s/%s mB)
+tile.aquaregia:fluid_tank.empty.desc=Empty
+tile.aquaregia:fluid_tank.shift.desc=Hold Shift to display contents
+item.aquaregia:armour_replacement.equip.desc=Replaces your other armour when equipped
+item.aquaregia:armour_replacement.unequip.desc=Restores your armour when unequipped
+item.aquaregia:armour_restricted.desc=Disappears if unequipped
+aquaregia:pig_spawner.finite.desc=Spawnable Pigs: %s/%s
+aquaregia:pig_spawner.infinite.desc=Spawnable Pigs: ∞
+item.aquaregia:dimension_replacement.replacement.desc=Will be replaced with %s when crafted in this dimension
+item.aquaregia:dimension_replacement.no_replacement.desc=Will not be replaced when crafted in this dimension
+aquaregia:rotatable.facing.desc=Facing: %s
+aquaregia:multi_rotatable.face_rotation.desc=Face Rotation: %s
+tile.aquaregia:plane.horizontal_rotation.desc=Horizontal Rotation: %s
+tile.aquaregia:plane.vertical_rotation.desc=Vertical Rotation: %s
+
+# Chat messages
+message.aquaregia:entity_interact_count=Interact count: %s
+message.aquaregia:block_destroyer.destroy=Destroyed Wheat with Age >= 6
+message.aquaregia:subscripts.right_click=Subscripts: %s
+message.aquaregia:superscripts.right_click=Superscripts: %s
+message.aquaregia:clearer.clearing=Clearing the chunk at %s, %s
+message.aquaregia:clearer.cleared=Chunk cleared
+message.aquaregia:clearer.mode.0=Switched to Whitelist Mode
+message.aquaregia:clearer.mode.1=Switched to All Mode
+message.aquaregia:height_tester.height=Height at %s,%s is %s
+message.aquaregia:height_tester.generate=Generated skylight map for the chunk %d,%d at %d,%d,%d
+message.aquaregia:login.free_apple=Congratulations! You have received a free apple for logging into the game.
+message.aquaregia:login.already_received=You've already received your free apple, you won't be getting any more.
+message.aquaregia:pig_spawner_refiller.refilled=Refilled held pig spawner.
+message.aquaregia:respawner.no_spawn_location=No spawn location set
+message.aquaregia:respawner.teleporting=Teleporting to %d,%d,%d in dimension %d
+message.aquaregia:client_player_right_click.right_click=Right click!!
+message.aquaregia:death.coordinates=You died at %d %d %d!
+message.aquaregia:player_received_loot.base=Received Loot: %s
+message.aquaregia:player_received_loot.item=%d x %s
+message.aquaregia:player_received_loot.no_loot=No loot received.
+message.aquaregia:max_health.add=Added %2$s bonus max health to %1$s
+message.aquaregia:max_health.set=Set bonus max health of %s to %s
+message.aquaregia:max_health.get=Max health of %s is %s (%s bonus)
+message.aquaregia:ritual_checker.success=Ritual pattern is valid!
+message.aquaregia:ritual_checker.failure=Ritual pattern is invalid at %d,%d,%d!
+message.aquaregia:hidden_block_revealer.reveal=Revealing hidden blocks.
+message.aquaregia:hidden_block_revealer.hide=Hiding hidden blocks.
+
+# Config GUI strings
+aquaregia.config.title=Test_mod3 Config
+
+aquaregia.config.general=General
+aquaregia.config.general.tooltip=General Settings.
+aquaregia.config.biomes=Biome IDs (NO LONGER USED)
+aquaregia.config.biomes.tooltip=This section is no longer used.
+aquaregia.config.client=Client
+aquaregia.config.client.tooltip=Settings that only affect the local client.
+
+aquaregia.config.foo_bar=Foo Bar
+aquaregia.config.foo_bar.tooltip=This is an example boolean property.
+aquaregia.config.baz=Baz
+aquaregia.config.baz.tooltip=This is an example int property.
+
+# Entities
+entity.aquaregia.mod_arrow.name=Mod Arrow
+
+# Creative Tabs
+item_group.aquaregia=Test Mod 3
+
+# Commands
+commands.aquaregia.rotatevector.usage=/aquaregia rotatevector <x> <y> <z> <axis> <degrees>
+commands.aquaregia.rotatevector.invalidaxis=axis must be x, y or z
+commands.aquaregia.rotatevector.result=Rotated vector: [%s, %s, %s]
+commands.aquaregia.runtests.usage=/aquaregia runtests
+commands.aquaregia.runtests.testspassed=All tests passed.
+commands.aquaregia.runtests.testsfailed=Tests failed. See log for more details.
+commands.aquaregia.addmaxhealth.usage=/aquaregia addmaxhealth <entity> <amount>
+commands.aquaregia.setmaxhealth.usage=/aquaregia setmaxhealth <entity> <amount>
+commands.aquaregia.getmaxhealth.usage=/aquaregia getmaxhealth <entity>
+commands.aquaregia.usage=/aquaregia <command>
+commands.aquaregia:help.usage=/aquaregia help [page|command name]
+
+# Subtitles
+subtitles.item.aquaregia:gun.fire=Gun fires
+subtitles.action.aquaregia:saddle=Mod saddle equips
+
+# Containers
+container.aquaregia:chest=Mod Chest
+
+# Enum values
+aquaregia:facing.down=Down
+aquaregia:facing.up=Up
+aquaregia:facing.north=North
+aquaregia:facing.south=South
+aquaregia:facing.west=West
+aquaregia:facing.east=East
+
+aquaregia:face_rotation.up=Up
+aquaregia:face_rotation.right=Right
+aquaregia:face_rotation.down=Down
+aquaregia:face_rotation.left=Left
+
+aquaregia:vertical_rotation.down=Down
+aquaregia:vertical_rotation.up=Up
+aquaregia:vertical_rotation.side=Side
+
+# Potion Effects
+effect.aquaregia:test=Test
+
+tipped_arrow.effect.aquaregia:test=Arrow of Testing
+
+potion.effect.aquaregia:test=Potion of Testing
+
+splash_potion.effect.aquaregia:test=Splash Potion of Testing
+
+lingering_potion.effect.aquaregia:test=Lingering Potion of Testing

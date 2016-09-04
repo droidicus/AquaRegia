@@ -40,8 +40,14 @@ minecraft {
 }
 
 repositories {
-    maven { url = "http://dvs1.progwml6.com/files/maven" }
-    maven { url = "http://mobiusstrip.eu/maven" }
+    maven { // The repo from which to get jei
+        name "Progwm Repo"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven { // The repo from which to get waila
+        name "Mobius Repo"
+        url "http://mobiusstrip.eu/maven"
+    }
 }
 
 dependencies {
@@ -57,7 +63,7 @@ shadowJar {
     }
 
     // Relocate fluent-hc to prevent conflicts with other mods that include it
-    relocate 'org.apache.http.client.fluent', 'choonster.testmod3.repack.org.apache.http.client.fluent'
+    relocate 'org.apache.http.client.fluent', 'droidicus.aquaregia.repack.org.apache.http.client.fluent'
 
     classifier '' // Replace the default JAR
 }

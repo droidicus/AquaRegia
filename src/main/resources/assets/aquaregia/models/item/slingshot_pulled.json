@@ -1,0 +1,6 @@
+{
+	"parent": "aquaregia:item/slingshot",
+	"textures": {
+		"layer0": "aquaregia:items/slingshot_pulled"
+	}
+}

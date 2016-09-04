@@ -1,0 +1,58 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "forge:fluid",
+		"transform": "forge:default-item"
+	},
+	"variants": {
+		"normal": [
+			{
+				"custom": {
+					"fluid": "normal"
+				}
+			}
+		],
+		"normal_gas": [
+			{
+				"custom": {
+					"fluid": "normal_gas"
+				}
+			}
+		],
+		"static": [
+			{
+				"custom": {
+					"fluid": "static"
+				}
+			}
+		],
+		"static_gas": [
+			{
+				"custom": {
+					"fluid": "static_gas"
+				}
+			}
+		],
+		"finite": [
+			{
+				"custom": {
+					"fluid": "finite"
+				}
+			}
+		],
+		"portal_displacement": [
+			{
+				"custom": {
+					"fluid": "portal_displacement"
+				}
+			}
+		],
+		"my_finite": [
+			{
+				"custom": {
+					"fluid": "my_finite"
+				}
+			}
+		]
+	}
+}

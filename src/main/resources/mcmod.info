@@ -1,14 +1,14 @@
 [
 {
-  "modid": "testmod3",
-  "name": "Test Mod 3",
-  "description": "Example placeholder mod.",
+  "modid": "aquaregia",
+  "name": "Aqua Regia",
+  "description": "A mod based on acids.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Choonster"],
-  "credits": "",
+  "authorList": ["droidicus"],
+  "credits": "Life, the universe, and everything!",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

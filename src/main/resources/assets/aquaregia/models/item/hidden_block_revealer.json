@@ -1,0 +1,14 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "aquaregia:items/hidden_block_revealer"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"aquaregia:reveal_hidden_blocks": 1
+			},
+			"model": "aquaregia:item/hidden_block_revealer_active"
+		}
+	]
+}

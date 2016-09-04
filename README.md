@@ -1,4 +1,13 @@
-# Test Mod 3
-This is Minecraft Forge 1.10.2 mod that I use to test various things (mainly code for people in the Minecraft Forum [Modification Development](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/modification-development) section and the Minecraft Forge [Modder Support](http://www.minecraftforge.net/forum/index.php/board,73.0.html) section).
+#[Aqua Regia](http://minecraft.curseforge.com/projects/aqua-regia)
 
-It's not supposed to be a complete or working mod.
+For Minecraft 1.10.2
+
+##Licenses
+Code, Textures and binaries are licensed under the MIT License.
+
+You are allowed to use the mod in your modpack.
+
+Any alternate licenses are noted where appropriate.
+
+##Thanks
+Based on the examples from https://github.com/Choonster/TestMod3

@@ -1,0 +1,28 @@
+{
+	"parent": "aquaregia:item/simple_model",
+	"textures": {
+		"layer0": "items/bow_standby"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"pulling": 1
+			},
+			"model": "aquaregia:item/continuous_bow_pulling_0"
+		},
+		{
+			"predicate": {
+				"pulling": 1,
+				"aquaregia:pull": 0.3
+			},
+			"model": "aquaregia:item/continuous_bow_pulling_1"
+		},
+		{
+			"predicate": {
+				"pulling": 1,
+				"aquaregia:pull": 0.45
+			},
+			"model": "aquaregia:item/continuous_bow_pulling_2"
+		}
+	]
+}

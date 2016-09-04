@@ -1,0 +1,20 @@
+{
+	"parent": "aquaregia:item/simple_model",
+	"textures": {
+		"layer0": "aquaregia:items/slingshot"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"aquaregia:ticksSinceLastUse": 0
+			},
+			"model": "aquaregia:item/slingshot_pulled"
+		},
+		{
+			"predicate": {
+				"aquaregia:ticksSinceLastUse": 20
+			},
+			"model": "aquaregia:item/slingshot"
+		}
+	]
+}
