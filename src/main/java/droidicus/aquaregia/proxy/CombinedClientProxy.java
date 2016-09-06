@@ -1,17 +1,13 @@
 package droidicus.aquaregia.proxy;
 
 
-import droidicus.aquaregia.client.cape.CapeEventHandler;
 import droidicus.aquaregia.client.event.ClientEventHandler;
 import droidicus.aquaregia.client.model.ModColourManager;
 import droidicus.aquaregia.client.model.ModModelManager;
-import droidicus.aquaregia.client.render.entity.RenderModArrow;
-//import droidicus.aquaregia.entity.EntityModArrow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -25,7 +21,6 @@ public class CombinedClientProxy implements IProxy {
 	@Override
 	public void preInit() {
 		ModModelManager.INSTANCE.registerAllModels();
-		MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
 		MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
 
 //		RenderingRegistry.registerEntityRenderingHandler(EntityModArrow.class, RenderModArrow::new);

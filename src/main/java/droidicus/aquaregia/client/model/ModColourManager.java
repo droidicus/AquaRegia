@@ -26,11 +26,11 @@ public class ModColourManager {
 	 * Register the colour handlers.
 	 */
 	public static void registerColourHandlers() {
-		final BlockColors blockColors = minecraft.getBlockColors();
-		final ItemColors itemColors = minecraft.getItemColors();
-
-		registerBlockColourHandlers(blockColors);
-		registerItemColourHandlers(blockColors, itemColors);
+//		final BlockColors blockColors = minecraft.getBlockColors();
+//		final ItemColors itemColors = minecraft.getItemColors();
+//
+//		registerBlockColourHandlers(blockColors);
+//		registerItemColourHandlers(blockColors, itemColors);
 	}
 
 	/**
@@ -40,14 +40,14 @@ public class ModColourManager {
 	 */
 	private static void registerBlockColourHandlers(final BlockColors blockColors) {
 		// Use the grass colour of the biome or the default grass colour
-		final IBlockColor grassColourHandler = (state, blockAccess, pos, tintIndex) -> {
-			if (blockAccess != null && pos != null) {
-				return BiomeColorHelper.getGrassColorAtPos(blockAccess, pos);
-			}
-
-			return ColorizerGrass.getGrassColor(0.5D, 1.0D);
-		};
-
+//		final IBlockColor grassColourHandler = (state, blockAccess, pos, tintIndex) -> {
+//			if (blockAccess != null && pos != null) {
+//				return BiomeColorHelper.getGrassColorAtPos(blockAccess, pos);
+//			}
+//
+//			return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+//		};
+//
 //		blockColors.registerBlockColorHandler(grassColourHandler, ModBlocks.WATER_GRASS);
 	}
 
@@ -59,12 +59,12 @@ public class ModColourManager {
 	 */
 	private static void registerItemColourHandlers(final BlockColors blockColors, final ItemColors itemColors) {
 		// Use the Block's colour handler for an ItemBlock
-		final IItemColor itemBlockColourHandler = (stack, tintIndex) -> {
-			@SuppressWarnings("deprecation")
-			final IBlockState state = ((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
-			return blockColors.colorMultiplier(state, null, null, tintIndex);
-		};
-
+//		final IItemColor itemBlockColourHandler = (stack, tintIndex) -> {
+//			@SuppressWarnings("deprecation")
+//			final IBlockState state = ((ItemBlock) stack.getItem()).getBlock().getStateFromMeta(stack.getMetadata());
+//			return blockColors.colorMultiplier(state, null, null, tintIndex);
+//		};
+//
 //		itemColors.registerItemColorHandler(itemBlockColourHandler, ModBlocks.WATER_GRASS);
 	}
 }

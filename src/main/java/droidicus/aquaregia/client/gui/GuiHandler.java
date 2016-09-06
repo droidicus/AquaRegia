@@ -1,8 +1,5 @@
 package droidicus.aquaregia.client.gui;
 
-import droidicus.aquaregia.client.gui.inventory.GuiModChest;
-import droidicus.aquaregia.tileentity.TileEntityModChest;
-import droidicus.aquaregia.tileentity.TileEntitySurvivalCommandBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -20,15 +17,15 @@ public class GuiHandler implements IGuiHandler {
 		final TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
 		switch (ID) {
-			case SURVIVAL_COMMAND_BLOCK:
-			case SURVIVAL_COMMAND_BLOCK_MINECART:
-				return null;
-
-			case MOD_CHEST:
-				if (tileEntity != null) {
-					return ((TileEntityModChest) tileEntity).createContainer(player);
-				}
-
+//			case SURVIVAL_COMMAND_BLOCK:
+//			case SURVIVAL_COMMAND_BLOCK_MINECART:
+//				return null;
+//
+//			case MOD_CHEST:
+//				if (tileEntity != null) {
+//					return ((TileEntityModChest) tileEntity).createContainer(player);
+//				}
+//
 			default:
 				return null;
 		}
@@ -40,20 +37,19 @@ public class GuiHandler implements IGuiHandler {
 		final TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
 		switch (ID) {
-			case SURVIVAL_COMMAND_BLOCK:
-				if (tileEntity != null) {
-					return new GuiSurvivalCommandBlock((TileEntitySurvivalCommandBlock) tileEntity);
-				}
-
-			case SURVIVAL_COMMAND_BLOCK_MINECART:
-				// Get SurvivalCommandBlockLogic from Minecart using x as entityID (NYI)
-				return null;
-
-			case MOD_CHEST:
-				if (tileEntity != null) {
-					return new GuiModChest(((TileEntityModChest) tileEntity).createContainer(player));
-				}
-
+//			case SURVIVAL_COMMAND_BLOCK:
+//				if (tileEntity != null) {
+//					return new GuiSurvivalCommandBlock((TileEntitySurvivalCommandBlock) tileEntity);
+//				}
+//
+//			case SURVIVAL_COMMAND_BLOCK_MINECART:
+//				// Get SurvivalCommandBlockLogic from Minecart using x as entityID (NYI)
+//				return null;
+//
+//			case MOD_CHEST:
+//				if (tileEntity != null) {
+//					return new GuiModChest(((TileEntityModChest) tileEntity).createContainer(player));
+//				}
 			default:
 				return null;
 		}

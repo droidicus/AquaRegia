@@ -53,6 +53,55 @@
 					"fluid": "my_finite"
 				}
 			}
+		],
+		"neutral": [
+			{
+				"custom": {
+					"fluid": "neutral"
+				}
+			}
+		],
+		"h2so4": [
+			{
+				"custom": {
+					"fluid": "h2so4"
+				}
+			}
+		],
+		"haucl4": [
+			{
+				"custom": {
+					"fluid": "haucl4"
+				}
+			}
+		],
+		"hcl": [
+			{
+				"custom": {
+					"fluid": "hcl"
+				}
+			}
+		],
+		"hf": [
+			{
+				"custom": {
+					"fluid": "hf"
+				}
+			}
+		],
+		"hno3": [
+			{
+				"custom": {
+					"fluid": "hno3"
+				}
+			}
+		],
+		"hno3hcl": [
+			{
+				"custom": {
+					"fluid": "hno3hcl"
+				}
+			}
 		]
 	}
 }

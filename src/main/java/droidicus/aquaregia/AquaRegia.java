@@ -1,21 +1,17 @@
 package droidicus.aquaregia;
 
-import droidicus.aquaregia.client.gui.GuiHandler;
+//import droidicus.aquaregia.client.gui.GuiHandler;
 import droidicus.aquaregia.config.Config;
-import droidicus.aquaregia.event.BlockEventHandler;
+//import droidicus.aquaregia.event.BlockEventHandler;
 //import droidicus.aquaregia.event.ItemCombinationHandler;
-import droidicus.aquaregia.event.NetworkEventHandler;
-import droidicus.aquaregia.event.PlayerEventHandler;
+//import droidicus.aquaregia.event.NetworkEventHandler;
+//import droidicus.aquaregia.event.PlayerEventHandler;
 import droidicus.aquaregia.init.*;
 import droidicus.aquaregia.proxy.IProxy;
 import droidicus.aquaregia.remap.Remapper;
 import droidicus.aquaregia.tests.Tests;
-import droidicus.aquaregia.tweak.snowbuildup.SnowBuildup;
-import droidicus.aquaregia.tweak.spawnerdrops.SpawnerDrops;
 import droidicus.aquaregia.util.BlockDumper;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -48,35 +44,31 @@ public class AquaRegia {
 	public void preInit(FMLPreInitializationEvent event) {
 		Logger.setLogger(event.getModLog());
 
-		FMLLog.bigWarning("Random UUID: %s", UUID.randomUUID().toString());
+//		FMLLog.bigWarning("Random UUID: %s", UUID.randomUUID().toString());
 
 		creativeTab = new CreativeTabAquaRegia();
 		Config.load(event);
 
-		ModCapabilities.registerCapabilities();
+//		ModCapabilities.registerCapabilities();
 
-		MinecraftForge.EVENT_BUS.register(new BlockEventHandler());
-		MinecraftForge.EVENT_BUS.register(new NetworkEventHandler());
-		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
+//		MinecraftForge.EVENT_BUS.register(new BlockEventHandler());
+//		MinecraftForge.EVENT_BUS.register(new NetworkEventHandler());
+//		MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
 //		MinecraftForge.EVENT_BUS.register(ItemCombinationHandler.class);
 
 		network = NetworkRegistry.INSTANCE.newSimpleChannel(MODID);
 
-		ModSoundEvents.registerSounds();
-		ModMessages.registerMessages();
+//		ModSoundEvents.registerSounds();
+//		ModMessages.registerMessages();
 		ModFluids.registerFluids();
 		ModBlocks.registerBlocks();
-		ModBlocks.registerTileEntities();
+//		ModBlocks.registerTileEntities();
 		ModItems.registerItems();
 		ModFluids.registerFluidContainers();
-		ModBiomes.registerBiomes();
 		ModMapGen.registerMapGen();
-		ModEntities.registerEntities();
-		ModPotions.registerPotions();
-		ModPotionTypes.registerPotionTypes();
-
-		SnowBuildup.init();
-		SpawnerDrops.init();
+//		ModEntities.registerEntities();
+//		ModPotions.registerPotions();
+//		ModPotionTypes.registerPotionTypes();
 
 		proxy.preInit();
 	}
@@ -84,11 +76,11 @@ public class AquaRegia {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		ModRecipes.registerRecipes();
-		ModRecipes.removeCraftingRecipes();
+//		ModRecipes.removeCraftingRecipes();
 		ModMapGen.registerWorldGenerators();
-		ModEntities.addSpawns();
+//		ModEntities.addSpawns();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+//		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 
 		FMLInterModComms.sendMessage("Waila", "register", "droidicus.aquaregia.compat.waila.WailaCompat.register");
 
@@ -107,11 +99,6 @@ public class AquaRegia {
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 		ModCommands.registerCommands(event);
-	}
-
-	@EventHandler
-	public void serverStopped(FMLServerStoppedEvent event) {
-		SpawnerDrops.serverStopped();
 	}
 
 	@EventHandler

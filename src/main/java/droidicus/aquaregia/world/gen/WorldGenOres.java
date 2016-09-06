@@ -27,12 +27,12 @@ public class WorldGenOres implements IWorldGenerator {
 		switch (world.provider.getDimensionType()) {
 			case NETHER:
 				for (int i = 0; i < 16; i++) {
-					oreGenNether.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(108) + 10, random.nextInt(16)));
+//					oreGenNether.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(108) + 10, random.nextInt(16)));
 				}
 				break;
 			case THE_END:
 				for (int i = 0; i < 16; i++) {
-					oreGenEnd.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(128), random.nextInt(16)));
+//					oreGenEnd.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(128), random.nextInt(16)));
 				}
 				break;
 		}

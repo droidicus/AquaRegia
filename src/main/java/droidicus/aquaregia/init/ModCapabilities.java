@@ -1,9 +1,9 @@
 package droidicus.aquaregia.init;
 
-import droidicus.aquaregia.capability.hiddenblockrevealer.CapabilityHiddenBlockRevealer;
-import droidicus.aquaregia.capability.lastusetime.CapabilityLastUseTime;
-import droidicus.aquaregia.capability.maxhealth.CapabilityMaxHealth;
-import droidicus.aquaregia.capability.pigspawner.CapabilityPigSpawner;
+//import droidicus.aquaregia.capability.hiddenblockrevealer.CapabilityHiddenBlockRevealer;
+//import droidicus.aquaregia.capability.lastusetime.CapabilityLastUseTime;
+//import droidicus.aquaregia.capability.maxhealth.CapabilityMaxHealth;
+//import droidicus.aquaregia.capability.pigspawner.CapabilityPigSpawner;
 
 /**
  * Registers this mods capabilities.

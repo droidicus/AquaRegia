@@ -1,16 +1,11 @@
 package droidicus.aquaregia.init;
 
-import droidicus.aquaregia.block.*;
-import droidicus.aquaregia.block.pipe.BlockPipeBasic;
-import droidicus.aquaregia.block.pipe.BlockPipeFluid;
-import droidicus.aquaregia.item.block.ItemFluidTank;
 import droidicus.aquaregia.tileentity.*;
 import droidicus.aquaregia.util.Constants;
+import droidicus.aquaregia.block.BlockSlabAquaRegia;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityCommandBlock;
 import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -24,76 +19,8 @@ public class ModBlocks {
 
 	public static final Set<Block> BLOCKS = new HashSet<>();
 
-//	public static final BlockWaterGrass WATER_GRASS;
-//	public static final BlockLargeCollisionTest LARGE_COLLISION_TEST;
-//	public static final BlockRightClickTest RIGHT_CLICK_TEST;
-//	public static final BlockClientPlayerRightClick CLIENT_PLAYER_RIGHT_CLICK;
-//	public static final BlockRotatableLamp ROTATABLE_LAMP;
-//	public static final BlockItemCollisionTest ITEM_COLLISION_TEST;
-//	public static final BlockFluidTank FLUID_TANK;
-//	public static final BlockItemDebugger ITEM_DEBUGGER;
-//	public static final Block END_PORTAL_FRAME_FULL;
-//	public static final BlockColoredRotatable COLORED_ROTATABLE;
-//	public static final BlockColoredMultiRotatable COLORED_MULTI_ROTATABLE;
-//	public static final BlockPotionEffect POTION_EFFECT;
-//	public static final BlockVariants VARIANTS;
-//	public static final BlockClientPlayerRotation CLIENT_PLAYER_ROTATION;
-//	public static final BlockPigSpawnerRefiller PIG_SPAWNER_REFILLER;
-//	public static final BlockPlane MIRROR_PLANE;
-//	public static final BlockAquaRegia VANILLA_MODEL_TEST;
-//	public static final BlockAquaRegia FULLBRIGHT;
-//	public static final BlockAquaRegia NORMAL_BRIGHTNESS;
-//	public static final BlockMaxHealthSetter MAX_HEALTH_SETTER;
-//	public static final BlockMaxHealthGetter MAX_HEALTH_GETTER;
-//	public static final BlockSmallCollisionTest SMALL_COLLISION_TEST;
-//	public static final BlockModChest CHEST;
-//	public static final BlockHidden HIDDEN;
-//
-//	public static final BlockPipeBasic BASIC_PIPE;
-//	public static final BlockPipeFluid FLUID_PIPE;
-//
-//	public static final BlockSurvivalCommandBlock SURVIVAL_COMMAND_BLOCK;
-//	public static final BlockSurvivalCommandBlock REPEATING_SURVIVAL_COMMAND_BLOCK;
-//	public static final BlockSurvivalCommandBlock CHAIN_SURVIVAL_COMMAND_BLOCK;
-//
-//	public static final BlockColouredSlab.ColouredSlabGroup STAINED_CLAY_SLABS;
-
 	static {
-//		WATER_GRASS = registerBlock(new BlockWaterGrass());
-//		LARGE_COLLISION_TEST = registerBlock(new BlockLargeCollisionTest());
-//		RIGHT_CLICK_TEST = registerBlock(new BlockRightClickTest());
-//		CLIENT_PLAYER_RIGHT_CLICK = registerBlock(new BlockClientPlayerRightClick());
-//		ROTATABLE_LAMP = registerBlock(new BlockRotatableLamp());
-//		ITEM_COLLISION_TEST = registerBlock(new BlockItemCollisionTest());
-//		FLUID_TANK = registerBlock(new BlockFluidTank(), ItemFluidTank::new);
-//		ITEM_DEBUGGER = registerBlock(new BlockItemDebugger());
-//		END_PORTAL_FRAME_FULL = registerBlock(new BlockAquaRegia(Material.ROCK, "end_portal_frame_full"));
-//		COLORED_ROTATABLE = registerBlock(new BlockColoredRotatable(Material.CLOTH, "colored_rotatable"), ItemCloth::new);
-//		COLORED_MULTI_ROTATABLE = registerBlock(new BlockColoredMultiRotatable(Material.CLOTH, "colored_multi_rotatable"), ItemCloth::new);
-//		POTION_EFFECT = registerBlock(new BlockPotionEffect());
-//		VARIANTS = registerBlock(new BlockVariants(Material.IRON), block -> new ItemMultiTexture(block, block, BlockVariants.EnumType.getNames()));
-//		CLIENT_PLAYER_ROTATION = registerBlock(new BlockClientPlayerRotation());
-//		PIG_SPAWNER_REFILLER = registerBlock(new BlockPigSpawnerRefiller());
-//		MIRROR_PLANE = registerBlock(new BlockPlane(Material.IRON, "mirror_plane"));
-//		VANILLA_MODEL_TEST = registerBlock(new BlockAquaRegia(Material.IRON, "vanilla_model_test"));
-//		FULLBRIGHT = (BlockAquaRegia) registerBlock(new BlockAquaRegia(Material.ROCK, "fullbright").setLightLevel(1));
-//		NORMAL_BRIGHTNESS = registerBlock(new BlockAquaRegia(Material.ROCK, "normal_brightness"));
-//		MAX_HEALTH_SETTER = registerBlock(new BlockMaxHealthSetter());
-//		MAX_HEALTH_GETTER = registerBlock(new BlockMaxHealthGetter());
-//		SMALL_COLLISION_TEST = registerBlock(new BlockSmallCollisionTest());
-//		CHEST = registerBlock(new BlockModChest());
-//		HIDDEN = registerBlock(new BlockHidden(Material.ROCK, "hidden"));
-//
-//		BASIC_PIPE = registerBlock(new BlockPipeBasic("basic_pipe"));
-//		FLUID_PIPE = registerBlock(new BlockPipeFluid());
-//
-//		STAINED_CLAY_SLABS = new BlockColouredSlab.ColouredSlabGroup("stained_clay_slab", Material.ROCK);
-//		registerSlabGroup(STAINED_CLAY_SLABS.low);
-//		registerSlabGroup(STAINED_CLAY_SLABS.high);
-//
-//		SURVIVAL_COMMAND_BLOCK = registerBlock(new BlockSurvivalCommandBlock(TileEntityCommandBlock.Mode.REDSTONE, "survival_command_block"));
-//		REPEATING_SURVIVAL_COMMAND_BLOCK = registerBlock(new BlockSurvivalCommandBlock(TileEntityCommandBlock.Mode.AUTO, "repeating_survival_command_block"));
-//		CHAIN_SURVIVAL_COMMAND_BLOCK = registerBlock(new BlockSurvivalCommandBlock(TileEntityCommandBlock.Mode.SEQUENCE, "chain_survival_command_block"));
+
 	}
 
 	public static void registerBlocks() {
@@ -149,16 +76,13 @@ public class ModBlocks {
 	}
 
 	public static void registerTileEntities() {
-		registerTileEntity(TileEntitySurvivalCommandBlock.class);
-		registerTileEntity(TileEntityFluidTank.class);
-		registerTileEntity(TileEntityColoredRotatable.class);
-		registerTileEntity(TileEntityColoredMultiRotatable.class);
-		registerTileEntity(TileEntityPotionEffect.class);
-		registerTileEntity(TileEntityModChest.class);
-		registerTileEntity(TileEntityHidden.class);
+//		registerTileEntity(TileEntityColoredRotatable.class);
+//		registerTileEntity(TileEntityColoredMultiRotatable.class);
+//		registerTileEntity(TileEntityPotionEffect.class);
+//		registerTileEntity(TileEntityModChest.class);
 	}
 
 	private static void registerTileEntity(Class<? extends TileEntity> tileEntityClass) {
-		GameRegistry.registerTileEntity(tileEntityClass, Constants.RESOURCE_PREFIX + tileEntityClass.getSimpleName().replaceFirst("TileEntity", ""));
+//		GameRegistry.registerTileEntity(tileEntityClass, Constants.RESOURCE_PREFIX + tileEntityClass.getSimpleName().replaceFirst("TileEntity", ""));
 	}
 }

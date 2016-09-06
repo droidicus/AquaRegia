@@ -1,7 +1,0 @@
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
-package droidicus.aquaregia.capability.pigspawner;
-
-import mcp.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;

@@ -10,14 +10,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderModArrow extends RenderTippedArrow {
-	private static final ResourceLocation ENTITY_TEXTURE = new ResourceLocation(AquaRegia.MODID, "textures/entity/mod_arrow.png");
-
+//	private static final ResourceLocation ENTITY_TEXTURE = new ResourceLocation(AquaRegia.MODID, "textures/entity/mod_arrow.png");
+//
 	public RenderModArrow(RenderManager renderManager) {
 		super(renderManager);
 	}
-
-	@Override
-	protected ResourceLocation getEntityTexture(EntityTippedArrow entity) {
-		return ENTITY_TEXTURE;
-	}
+//
+//	@Override
+//	protected ResourceLocation getEntityTexture(EntityTippedArrow entity) {
+//		return ENTITY_TEXTURE;
+//	}
 }

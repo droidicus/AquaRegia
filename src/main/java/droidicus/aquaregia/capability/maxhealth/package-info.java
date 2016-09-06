@@ -1,7 +1,0 @@
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
-package droidicus.aquaregia.capability.maxhealth;
-
-import mcp.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;

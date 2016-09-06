@@ -77,6 +77,100 @@ public class ModRecipes {
 //
 //		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.DIMENSION_REPLACEMENT), ModItems.SUBSCRIPTS, ModItems.SUPERSCRIPTS);
 //		GameRegistry.addSmelting(ModItems.SUBSCRIPTS, new ItemStack(ModItems.DIMENSION_REPLACEMENT), 0.35f);
+
+//		final ItemStack bucketOfNeutral = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL);
+
+		// TODO: Implement custom recipe to manage bucket returns
+		GameRegistry.addShapelessRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
+				//Inputs
+				Items.WATER_BUCKET.setContainerItem(null)
+		);
+
+		GameRegistry.addShapelessRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+				//Inputs
+				Items.GUNPOWDER,
+				Items.GUNPOWDER,
+				Items.GUNPOWDER,
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+		);
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+				//Inputs
+				"dustSulfur",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+		));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
+				//Inputs
+				"dustSalt",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
+		));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3),
+				//Inputs
+				"dustSaltpeter",
+				"dustSaltpeter",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
+		));
+
+		GameRegistry.addShapelessRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL),
+				//Inputs
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3)
+		);
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
+				//Inputs
+				"ingotGold",
+				"ingotGold",
+				"ingotGold",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
+		));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
+				//Inputs
+				"oreGold",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
+		));
+
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(ModItems.GOLDPRECIP, 3),
+				//Inputs
+				Items.GUNPOWDER,
+				Items.GUNPOWDER,
+				Items.GUNPOWDER,
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
+		);
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(
+				new ItemStack(ModItems.GOLDPRECIP, 3),
+				//Inputs
+				"dustSulfur",
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
+		));
+
+		GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
+
+		//TODO: test for bucket being returned
+		GameRegistry.addShapelessRecipe(
+				new ItemStack(Items.GUNPOWDER),
+				//Inputs
+				Items.ARROW,
+				Items.ARROW,
+				Items.ARROW,
+				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+		);
+
 	}
 
 	/**
@@ -109,9 +203,7 @@ public class ModRecipes {
 	 * Remove crafting recipes.
 	 */
 	public static void removeCraftingRecipes() {
-//		removeRecipeClass(RecipeFireworks.class);
-//		removeRecipe(Items.DYE);
-//		removeRecipe(Blocks.STAINED_HARDENED_CLAY);
+
 	}
 
 	/**
