@@ -1,10 +1,14 @@
 package droidicus.aquaregia;
 
 //import droidicus.aquaregia.util.SwordUpgrades;
+import droidicus.aquaregia.init.ModFluids;
+import droidicus.aquaregia.init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -21,7 +25,7 @@ public class CreativeTabAquaRegia extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getTabIconItem() {
-		return Items.STONE_SWORD;
+		return UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL).getItem();
 	}
 
 	@SideOnly(Side.CLIENT)

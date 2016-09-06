@@ -50,7 +50,7 @@ public class ModRecipes {
 	private static void registerRecipeClasses() {
 //		RecipeSorter.register("aquaregia:shapelesscutting", ShapelessCuttingRecipe.class, SHAPELESS, "after:minecraft:shapeless");
 //		RecipeSorter.register("aquaregia:shapedarmourupgrade", ShapedArmourUpgradeRecipe.class, SHAPED, "after:forge:shapedore before:minecraft:shapeless");
-//		RecipeSorter.register("aquaregia:shapelessnbt", ShapelessNBTRecipe.class, SHAPELESS, "after:forge:shapelessore");
+		RecipeSorter.register("aquaregia:shapelessnbt", ShapelessNBTRecipe.class, SHAPELESS, "after:forge:shapelessore");
 	}
 
 	/**
@@ -80,37 +80,36 @@ public class ModRecipes {
 
 //		final ItemStack bucketOfNeutral = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL);
 
-		// TODO: Implement custom recipe to manage bucket returns
-		GameRegistry.addShapelessRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
 				//Inputs
-				Items.WATER_BUCKET.setContainerItem(null)
-		);
+				Items.WATER_BUCKET
+		));
 
-		GameRegistry.addShapelessRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
 				//Inputs
 				Items.GUNPOWDER,
 				Items.GUNPOWDER,
 				Items.GUNPOWDER,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
-		);
+		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
 				//Inputs
 				"dustSulfur",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
 		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
 				//Inputs
 				"dustSalt",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
 		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3),
 				//Inputs
 				"dustSaltpeter",
@@ -118,16 +117,17 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
 		));
 
-		GameRegistry.addShapelessRecipe(
+		//TODO: This loses 3 buckets, do we want it that way???
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL),
 				//Inputs
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3)
-		);
+		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
 				//Inputs
 				"ingotGold",
@@ -136,23 +136,23 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
 		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
 				//Inputs
 				"oreGold",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
 		));
 
-		GameRegistry.addShapelessRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				new ItemStack(ModItems.GOLDPRECIP, 3),
 				//Inputs
 				Items.GUNPOWDER,
 				Items.GUNPOWDER,
 				Items.GUNPOWDER,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
-		);
+		));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				new ItemStack(ModItems.GOLDPRECIP, 3),
 				//Inputs
 				"dustSulfur",
@@ -161,7 +161,7 @@ public class ModRecipes {
 
 		GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
 
-		//TODO: test for bucket being returned
+		//TODO: simple test for bucket being returned
 		GameRegistry.addShapelessRecipe(
 				new ItemStack(Items.GUNPOWDER),
 				//Inputs
@@ -170,6 +170,15 @@ public class ModRecipes {
 				Items.ARROW,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
 		);
+
+		GameRegistry.addRecipe(new ShapelessNBTRecipe( true,//addShapelessRecipe(
+				new ItemStack(Items.GUNPOWDER),
+				//Inputs
+				Items.ARROW,
+				Items.ARROW,
+				Items.ARROW//,
+//				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+		));
 
 	}
 

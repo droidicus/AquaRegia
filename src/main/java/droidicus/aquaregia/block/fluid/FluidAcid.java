@@ -4,7 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
 /**
- * Created by droidicus.
+ * Created by droidicus, based on class from Tinkers' Construct
  */
 public class FluidAcid extends Fluid {
     public final int color;

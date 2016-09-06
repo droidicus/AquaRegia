@@ -12,10 +12,12 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import java.util.Random;
 
 public class WorldGenOres implements IWorldGenerator {
+	private final WorldGenMinable oreGenOverworld;
 	private final WorldGenMinable oreGenNether;
 	private final WorldGenMinable oreGenEnd;
 
 	public WorldGenOres() {
+		oreGenOverworld = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 20, BlockMatcher.forBlock(Blocks.STONE));
 		oreGenNether = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 20, BlockMatcher.forBlock(Blocks.NETHERRACK));
 		oreGenEnd = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), 20, BlockMatcher.forBlock(Blocks.END_STONE));
 	}
@@ -25,6 +27,11 @@ public class WorldGenOres implements IWorldGenerator {
 		final BlockPos chunkPos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 
 		switch (world.provider.getDimensionType()) {
+			case OVERWORLD:
+				for (int i = 0; i < 16; i++) {
+//					oreGenOverworld.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(108) + 10, random.nextInt(16)));
+				}
+				break;
 			case NETHER:
 				for (int i = 0; i < 16; i++) {
 //					oreGenNether.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(108) + 10, random.nextInt(16)));

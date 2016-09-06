@@ -2,6 +2,7 @@ package droidicus.aquaregia.client.model;
 
 import droidicus.aquaregia.init.ModFluids;
 import droidicus.aquaregia.init.ModItems;
+import droidicus.aquaregia.init.ModBlocks;
 import droidicus.aquaregia.util.Constants;
 import droidicus.aquaregia.util.IVariant;
 import net.minecraft.block.Block;
@@ -77,8 +78,8 @@ public class ModModelManager {
 //
 //		registerBlockItemModel(ModBlocks.MIRROR_PLANE, new ModelResourceLocation(ModBlocks.MIRROR_PLANE.getRegistryName(), "horizontal_rotation=north,vertical_rotation=up"));
 //		registerBlockItemModel(ModBlocks.CHEST, new ModelResourceLocation(ModBlocks.CHEST.getRegistryName(), "facing=north"));
-//
-//		ModBlocks.BLOCKS.stream().filter(block -> !itemsRegistered.contains(Item.getItemFromBlock(block))).forEach(this::registerBlockItemModel);
+
+		ModBlocks.BLOCKS.stream().filter(block -> !itemsRegistered.contains(Item.getItemFromBlock(block))).forEach(this::registerBlockItemModel);
 	}
 
 	private void registerBlockItemModel(Block block) {
@@ -119,31 +120,8 @@ public class ModModelManager {
 	private final Set<Item> itemsRegistered = new HashSet<>();
 
 	private void registerItemModels() {
-//		// Register items with custom model names first
-//		registerItemModel(ModItems.SNOWBALL_LAUNCHER, "minecraft:fishing_rod");
-//		registerItemModel(ModItems.UNICODE_TOOLTIPS, "minecraft:rabbit");
-//		registerItemModel(ModItems.SWAP_TEST_A, "minecraft:brick");
-//		registerItemModel(ModItems.SWAP_TEST_B, "minecraft:netherbrick");
-//		registerItemModel(ModItems.BLOCK_DEBUGGER, "minecraft:nether_star");
-//		registerItemModel(ModItems.WOODEN_HARVEST_SWORD, "minecraft:wooden_sword");
-//		registerItemModel(ModItems.DIAMOND_HARVEST_SWORD, "minecraft:diamond_sword");
-//		registerItemModel(ModItems.CLEARER, "minecraft:nether_star");
-//		registerItemModel(ModItems.HEIGHT_TESTER, "minecraft:compass");
-//		registerItemModel(ModItems.HEAVY, "minecraft:brick");
 //		registerItemModel(ModItems.ENTITY_TEST, "minecraft:porkchop");
-//		registerItemModel(ModItems.BLOCK_DESTROYER, "minecraft:tnt_minecart");
-//		registerItemModel(ModItems.REPLACEMENT_HELMET, "minecraft:chainmail_helmet");
-//		registerItemModel(ModItems.REPLACEMENT_CHESTPLATE, "minecraft:chainmail_chestplate");
-//		registerItemModel(ModItems.REPACEMENT_LEGGINGS, "minecraft:chainmail_leggings");
-//		registerItemModel(ModItems.REPLACEMENT_BOOTS, "minecraft:chainmail_boots");
-//		registerItemModel(ModItems.PIG_SPAWNER_FINITE, "minecraft:porkchop");
-//		registerItemModel(ModItems.PIG_SPAWNER_INFINITE, "minecraft:porkchop");
-//		registerItemModel(ModItems.RESPAWNER, "minecraft:clock");
 //		registerItemModel(ModItems.LOOT_TABLE_TEST, "minecraft:gold_ingot");
-//		registerItemModel(ModItems.SADDLE, "minecraft:saddle");
-//		registerItemModel(ModItems.WOODEN_SLOW_SWORD, "minecraft:wooden_sword");
-//		registerItemModel(ModItems.DIAMOND_SLOW_SWORD, "minecraft:diamond_sword");
-//
 //		registerVariantItemModels(ModItems.VARIANTS, "variant", ItemVariants.EnumType.values());
 
 		// Then register items with default model names

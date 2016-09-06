@@ -10,7 +10,7 @@ import droidicus.aquaregia.init.*;
 import droidicus.aquaregia.proxy.IProxy;
 import droidicus.aquaregia.remap.Remapper;
 import droidicus.aquaregia.tests.Tests;
-import droidicus.aquaregia.util.BlockDumper;
+//import droidicus.aquaregia.util.BlockDumper;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -19,8 +19,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-
-import java.util.UUID;
 
 @Mod(modid = AquaRegia.MODID, acceptedMinecraftVersions = "[1.10.2]", guiFactory = "droidicus.aquaregia.config.GuiConfigFactoryAquaRegia")
 public class AquaRegia {
@@ -89,7 +87,7 @@ public class AquaRegia {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		BlockDumper.dump();
+//		BlockDumper.dump();
 
 		proxy.postInit();
 

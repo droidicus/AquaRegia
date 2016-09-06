@@ -5,6 +5,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
@@ -21,16 +22,21 @@ import java.util.List;
  * @author Choonster
  */
 public class ShapelessNBTRecipe extends ShapelessOreRecipe {
-	public ShapelessNBTRecipe(Block result, Object... recipe) {
+	private boolean returnContainers = true;
+
+	public ShapelessNBTRecipe(boolean retCon, Block result, Object... recipe) {
 		super(result, recipe);
+		returnContainers = retCon;
 	}
 
-	public ShapelessNBTRecipe(Item result, Object... recipe) {
+	public ShapelessNBTRecipe(boolean retCon, Item result, Object... recipe) {
 		super(result, recipe);
+		returnContainers = retCon;
 	}
 
-	public ShapelessNBTRecipe(ItemStack result, Object... recipe) {
+	public ShapelessNBTRecipe(boolean retCon, ItemStack result, Object... recipe) {
 		super(result, recipe);
+		returnContainers = retCon;
 	}
 
 	@Override
@@ -75,8 +81,17 @@ public class ShapelessNBTRecipe extends ShapelessOreRecipe {
 		return required.isEmpty();
 	}
 
-
 	protected boolean itemMatches(ItemStack required, ItemStack present) {
 		return OreDictionary.itemMatches(required, present, false) && ItemStack.areItemStackTagsEqual(required, present);
+	}
+
+	@Override
+	public ItemStack[] getRemainingItems(InventoryCrafting inv) {
+		ItemStack[] remainingItems = new ItemStack[inv.getSizeInventory()];
+		if (returnContainers) {
+			remainingItems = ForgeHooks.defaultRecipeGetRemainingItems(inv);
+		}
+
+		return remainingItems;
 	}
 }
