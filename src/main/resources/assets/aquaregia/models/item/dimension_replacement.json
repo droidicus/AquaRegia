@@ -1,6 +1,0 @@
-{
-	"parent": "aquaregia:item/simple_model",
-	"textures": {
-		"layer0": "aquaregia:items/dimension_replacement"
-	}
-}

@@ -27,45 +27,7 @@ item.aquaregia:goldprecip.name=Precipitated Gold
 
 
 
-## IGNORE BELOW TODO: REMOVE!
-
-# Tooltips
-#item.aquaregia:unicode_tooltips.1.desc=§a§oLine 1 (Section Characters in Lang File)§r
-#item.aquaregia:unicode_tooltips.2.desc=Line 2 (Section Characters in Code)
-#item.aquaregia:unicode_tooltips.3.desc=Line 3 (EnumChatFormatting)
-#aquaregia:rotatable.facing.desc=Facing: %s
-#aquaregia:multi_rotatable.face_rotation.desc=Face Rotation: %s
-#tile.aquaregia:plane.horizontal_rotation.desc=Horizontal Rotation: %s
-#tile.aquaregia:plane.vertical_rotation.desc=Vertical Rotation: %s
-
-# Chat messages
-#message.aquaregia:entity_interact_count=Interact count: %s
-#message.aquaregia:block_destroyer.destroy=Destroyed Wheat with Age >= 6
-#message.aquaregia:subscripts.right_click=Subscripts: %s
-#message.aquaregia:superscripts.right_click=Superscripts: %s
-#message.aquaregia:clearer.clearing=Clearing the chunk at %s, %s
-#message.aquaregia:clearer.cleared=Chunk cleared
-#message.aquaregia:clearer.mode.0=Switched to Whitelist Mode
-#message.aquaregia:clearer.mode.1=Switched to All Mode
-#message.aquaregia:height_tester.height=Height at %s,%s is %s
-#message.aquaregia:height_tester.generate=Generated skylight map for the chunk %d,%d at %d,%d,%d
-#message.aquaregia:login.free_apple=Congratulations! You have received a free apple for logging into the game.
-#message.aquaregia:login.already_received=You've already received your free apple, you won't be getting any more.
-#message.aquaregia:pig_spawner_refiller.refilled=Refilled held pig spawner.
-#message.aquaregia:respawner.no_spawn_location=No spawn location set
-#message.aquaregia:respawner.teleporting=Teleporting to %d,%d,%d in dimension %d
-#message.aquaregia:client_player_right_click.right_click=Right click!!
-#message.aquaregia:death.coordinates=You died at %d %d %d!
-#message.aquaregia:player_received_loot.base=Received Loot: %s
-#message.aquaregia:player_received_loot.item=%d x %s
-#message.aquaregia:player_received_loot.no_loot=No loot received.
-#message.aquaregia:max_health.add=Added %2$s bonus max health to %1$s
-#message.aquaregia:max_health.set=Set bonus max health of %s to %s
-#message.aquaregia:max_health.get=Max health of %s is %s (%s bonus)
-#message.aquaregia:ritual_checker.success=Ritual pattern is valid!
-#message.aquaregia:ritual_checker.failure=Ritual pattern is invalid at %d,%d,%d!
-#message.aquaregia:hidden_block_revealer.reveal=Revealing hidden blocks.
-#message.aquaregia:hidden_block_revealer.hide=Hiding hidden blocks.
+## TODO: REMOVE UNUSED!
 
 # Config GUI strings
 aquaregia.config.title=Test_mod3 Config
@@ -86,9 +48,6 @@ aquaregia.config.baz.tooltip=This is an example int property.
 item_group.aquaregia=Aqua Regia
 
 # Commands
-#commands.aquaregia.rotatevector.usage=/aquaregia rotatevector <x> <y> <z> <axis> <degrees>
-#commands.aquaregia.rotatevector.invalidaxis=axis must be x, y or z
-#commands.aquaregia.rotatevector.result=Rotated vector: [%s, %s, %s]
 commands.aquaregia.runtests.usage=/aquaregia runtests
 commands.aquaregia.runtests.testspassed=All tests passed.
 commands.aquaregia.runtests.testsfailed=Tests failed. See log for more details.

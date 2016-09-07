@@ -1,6 +1,0 @@
-{
-	"parent": "aquaregia:item/hidden_block_revealer",
-	"textures": {
-		"layer0": "aquaregia:items/hidden_block_revealer_active"
-	}
-}
