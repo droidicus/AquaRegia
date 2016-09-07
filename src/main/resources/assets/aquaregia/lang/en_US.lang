@@ -18,6 +18,9 @@ tile.aquaregia:fluid.hf.name=Hydrofluoric Acid
 tile.aquaregia:fluid.hno3.name=Nitric Acid
 tile.aquaregia:fluid.hno3hcl.name=Aqua Regia
 tile.aquaregia:fluid.neutral.name=Neutral Water
+tile.aquaregia:oreniter.name=Niter Ore
+tile.aquaregia:oresalt.name=Salt Ore
+tile.aquaregia:oresulfur.name=Sulfur Ore
 
 #Items
 item.aquaregia:sulfur.name=Sulfur
@@ -25,24 +28,13 @@ item.aquaregia:niter.name=Niter
 item.aquaregia:salt.name=Salt
 item.aquaregia:goldprecip.name=Precipitated Gold
 
-
-
-## TODO: REMOVE UNUSED BELOW!
-
 # Config GUI strings
-aquaregia.config.title=Test_mod3 Config
+aquaregia.config.title=Aqua Regia Config
 
 aquaregia.config.general=General
 aquaregia.config.general.tooltip=General Settings.
-aquaregia.config.biomes=Biome IDs (NO LONGER USED)
-aquaregia.config.biomes.tooltip=This section is no longer used.
 aquaregia.config.client=Client
 aquaregia.config.client.tooltip=Settings that only affect the local client.
-
-aquaregia.config.foo_bar=Foo Bar
-aquaregia.config.foo_bar.tooltip=This is an example boolean property.
-aquaregia.config.baz=Baz
-aquaregia.config.baz.tooltip=This is an example int property.
 
 # Creative Tabs
 item_group.aquaregia=Aqua Regia
