@@ -12,11 +12,11 @@ public class Config {
 
 	static Configuration config;
 
-//	public static boolean fooBar;
-//	public static int baz;
-
 	public static boolean enableOreGen;
 	public static boolean enableGunpowerSulfur;
+	public static int niterPerChunk;
+	public static int saltPerChunk;
+	public static int sulfurPerChunk;
 
 	public static void load(FMLPreInitializationEvent event) {
 		config = new Configuration(event.getSuggestedConfigurationFile());
@@ -26,11 +26,11 @@ public class Config {
 	}
 
 	private static void reloadConfig() {
-//		fooBar = config.getBoolean("fooBar", Configuration.CATEGORY_GENERAL, false, "This is an example boolean property.", LANG_PREFIX + "fooBar");
-//		baz = config.getInt("baz", Configuration.CATEGORY_CLIENT, -100, -Integer.MAX_VALUE, Integer.MAX_VALUE, "This is an example int property.", LANG_PREFIX + "baz");
-
 		enableOreGen = config.getBoolean("enableOreGen", Configuration.CATEGORY_GENERAL, true, "Enable Ore Generation for this mod.", LANG_PREFIX + "enableOreGen");
 		enableGunpowerSulfur = config.getBoolean("enableGunpowerSulfur", Configuration.CATEGORY_GENERAL, true, "Enable using gunpowder in place of sulfur (3 for 1).", LANG_PREFIX + "enableGunpowerSulfur");
+		niterPerChunk = config.getInt("niterPerChunk", Configuration.CATEGORY_GENERAL, 20, 0, Integer.MAX_VALUE, "Number of Niter Oreveins per chunk", LANG_PREFIX + "niterPerChunk");
+		saltPerChunk = config.getInt("saltPerChunk", Configuration.CATEGORY_GENERAL, 32, 0, Integer.MAX_VALUE, "Number of Salt Ore veins per chunk", LANG_PREFIX + "saltPerChunk");
+		sulfurPerChunk = config.getInt("sulfurPerChunk", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Number of Sulfur Ore veins per chunk", LANG_PREFIX + "sulfurPerChunk");
 
 		if (config.hasChanged()) {
 			config.save();
