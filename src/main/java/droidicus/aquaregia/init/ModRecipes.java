@@ -4,6 +4,7 @@ import droidicus.aquaregia.Logger;
 import droidicus.aquaregia.recipe.ShapedArmourUpgradeRecipe;
 import droidicus.aquaregia.recipe.ShapelessCuttingRecipe;
 import droidicus.aquaregia.recipe.ShapelessNBTRecipe;
+import droidicus.aquaregia.config.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
@@ -57,43 +58,22 @@ public class ModRecipes {
 	 * Add this mod's crafting recipes.
 	 */
 	private static void addCraftingRecipes() {
-//		GameRegistry.addRecipe(new ShapelessCuttingRecipe(new ItemStack(Blocks.PLANKS, 2, BlockPlanks.EnumType.OAK.getMetadata()), new ItemStack(Items.WOODEN_AXE, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.LOG, 1, BlockPlanks.EnumType.OAK.getMetadata())));
-//		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.PLANKS, 2, BlockPlanks.EnumType.OAK.getMetadata()), new ItemStack(ModItems.WOODEN_AXE, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Blocks.LOG, 1, BlockPlanks.EnumType.OAK.getMetadata()));
-//
-//		// Upgrade an Iron Helment to a Golden Helmet while preserving its damage - http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/modification-development/2513998-help-needed-creating-crafting-recipe-with-damaged
-//		GameRegistry.addRecipe(new ShapedArmourUpgradeRecipe(Items.GOLDEN_HELMET, "AAA", "ABA", "AAA", 'A', Blocks.GOLD_BLOCK, 'B', new ItemStack(Items.IRON_HELMET, 1, OreDictionary.WILDCARD_VALUE)));
-//
-//		// Recipe for Guardian Spawner - http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/modification-development/2424619-help-needed-creating-non-pig-mob-spawners
-//		final ItemStack guardianSpawner = new ItemStack(Blocks.MOB_SPAWNER);
-//		final NBTTagCompound tileEntityData = guardianSpawner.getSubCompound("BlockEntityTag", true);
-//		final NBTTagCompound spawnData = new NBTTagCompound();
-//		spawnData.setString("id", "Guardian");
-//		tileEntityData.setTag("SpawnData", spawnData);
-//		tileEntityData.setTag("SpawnPotentials", new NBTTagList());
-//		GameRegistry.addRecipe(guardianSpawner, "SSS", "SFS", "SSS", 'S', Items.STICK, 'F', Items.FISH);
-//
-//		final ItemStack bucketOfStaticGas = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.STATIC_GAS);
-//		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Blocks.COBBLESTONE), bucketOfStaticGas, bucketOfStaticGas, bucketOfStaticGas));
-//
-//		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.DIMENSION_REPLACEMENT), ModItems.SUBSCRIPTS, ModItems.SUPERSCRIPTS);
-//		GameRegistry.addSmelting(ModItems.SUBSCRIPTS, new ItemStack(ModItems.DIMENSION_REPLACEMENT), 0.35f);
-
-//		final ItemStack bucketOfNeutral = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL);
-
 		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
 				//Inputs
 				Items.WATER_BUCKET
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
-				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
-				//Inputs
-				Items.GUNPOWDER,
-				Items.GUNPOWDER,
-				Items.GUNPOWDER,
-				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
-		));
+		if (Config.enableGunpowerSulfur) {
+			GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+					UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+					//Inputs
+					Items.GUNPOWDER,
+					Items.GUNPOWDER,
+					Items.GUNPOWDER,
+					UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+			));
+		}
 
 		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
@@ -143,14 +123,16 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
-				new ItemStack(ModItems.GOLDPRECIP, 3),
-				//Inputs
-				Items.GUNPOWDER,
-				Items.GUNPOWDER,
-				Items.GUNPOWDER,
-				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
-		));
+		if (Config.enableGunpowerSulfur) {
+			GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+					new ItemStack(ModItems.GOLDPRECIP, 3),
+					//Inputs
+					Items.GUNPOWDER,
+					Items.GUNPOWDER,
+					Items.GUNPOWDER,
+					UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
+			));
+		}
 
 		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
 				new ItemStack(ModItems.GOLDPRECIP, 3),
@@ -161,24 +143,23 @@ public class ModRecipes {
 
 		GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
 
-		//TODO: simple test for bucket being returned
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(Items.GUNPOWDER),
-				//Inputs
-				Items.ARROW,
-				Items.ARROW,
-				Items.ARROW,
-				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
-		);
-
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( true,//addShapelessRecipe(
-				new ItemStack(Items.GUNPOWDER),
-				//Inputs
-				Items.ARROW,
-				Items.ARROW,
-				Items.ARROW//,
+//		//TODO: simple test for bucket being returned
+//		GameRegistry.addShapelessRecipe(
+//				new ItemStack(Items.GUNPOWDER),
+//				//Inputs
+//				Items.ARROW,
+//				Items.ARROW,
+//				Items.ARROW,
 //				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
-		));
+//		);
+//
+//		GameRegistry.addRecipe(new ShapelessNBTRecipe( true,//addShapelessRecipe(
+//				new ItemStack(Items.GUNPOWDER),
+//				//Inputs
+//				Items.ARROW,
+//				Items.ARROW,
+//				Items.ARROW//,
+//		));
 
 	}
 
