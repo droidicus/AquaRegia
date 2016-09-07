@@ -11,6 +11,7 @@ import net.minecraft.item.*;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IStringSerializable;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 import java.util.HashSet;
@@ -27,9 +28,9 @@ public class ModBlocks {
 	public static final BlockOreSulfur BLOCK_ORE_SULFUR;
 
 	static {
-		BLOCK_ORE_NITER = registerBlock(new BlockOreNiter());
-		BLOCK_ORE_SALT = registerBlock(new BlockOreSalt());
-		BLOCK_ORE_SULFUR = registerBlock(new BlockOreSulfur());
+		BLOCK_ORE_NITER = registerBlockOreDict(new BlockOreNiter(), "oreSaltpeter");
+		BLOCK_ORE_SALT = registerBlockOreDict(new BlockOreSalt(), "oreSalt");
+		BLOCK_ORE_SULFUR = registerBlockOreDict(new BlockOreSulfur(), "oreSulfur");
 	}
 
 	public static void registerBlocks() {
@@ -45,6 +46,20 @@ public class ModBlocks {
 	 */
 	protected static <BLOCK extends Block> BLOCK registerBlock(BLOCK block) {
 		return registerBlock(block, ItemBlock::new);
+	}
+
+	/**
+	 * Register a Block with the default ItemBlock class.
+	 *
+	 * @param block   The Block instance
+	 * @param <BLOCK> The Block type
+	 * @return The Block instance
+	 */
+	protected static <BLOCK extends Block> BLOCK registerBlockOreDict(BLOCK block, String dictName) {
+		final BLOCK itemBlock = registerBlock(block);
+		OreDictionary.registerOre(dictName, itemBlock);
+
+		return itemBlock;
 	}
 
 	/**
