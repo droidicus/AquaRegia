@@ -1,5 +1,8 @@
 package droidicus.aquaregia.init;
 
+import droidicus.aquaregia.block.BlockOreNiter;
+import droidicus.aquaregia.block.BlockOreSalt;
+import droidicus.aquaregia.block.BlockOreSulfur;
 import droidicus.aquaregia.tileentity.*;
 import droidicus.aquaregia.util.Constants;
 import droidicus.aquaregia.block.BlockSlabAquaRegia;
@@ -19,8 +22,14 @@ public class ModBlocks {
 
 	public static final Set<Block> BLOCKS = new HashSet<>();
 
-	static {
+	public static final BlockOreNiter BLOCK_ORE_NITER;
+	public static final BlockOreSalt BLOCK_ORE_SALT;
+	public static final BlockOreSulfur BLOCK_ORE_SULFUR;
 
+	static {
+		BLOCK_ORE_NITER = registerBlock(new BlockOreNiter());
+		BLOCK_ORE_SALT = registerBlock(new BlockOreSalt());
+		BLOCK_ORE_SULFUR = registerBlock(new BlockOreSulfur());
 	}
 
 	public static void registerBlocks() {
