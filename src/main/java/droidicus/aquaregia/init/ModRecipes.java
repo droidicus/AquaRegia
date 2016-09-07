@@ -58,7 +58,8 @@ public class ModRecipes {
 	 * Add this mod's crafting recipes.
 	 */
 	private static void addCraftingRecipes() {
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		//TODO: Re-evaluate when Forge buckets correctly return an empty bucket from recipies https://github.com/MinecraftForge/MinecraftForge/pull/3234
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
 				//Inputs
 				Items.WATER_BUCKET
@@ -75,21 +76,21 @@ public class ModRecipes {
 			));
 		}
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
 				//Inputs
 				"dustSulfur",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
 				//Inputs
 				"dustSalt",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3),
 				//Inputs
 				"dustSaltpeter",
@@ -97,8 +98,8 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
 		));
 
-		//TODO: This loses 3 buckets, do we want it that way???
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		//TODO: This loses 3 buckets, do we want it that way, or did the acid eat them??? https://github.com/MinecraftForge/MinecraftForge/pull/3234
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL),
 				//Inputs
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
@@ -107,7 +108,7 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3)
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
 				//Inputs
 				"ingotGold",
@@ -116,13 +117,14 @@ public class ModRecipes {
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
 		));
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
 				//Inputs
 				"oreGold",
 				UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
 		));
 
+		//TODO: This loses a bucket, did the acid eat it? https://github.com/MinecraftForge/MinecraftForge/pull/3234
 		if (Config.enableGunpowerSulfur) {
 			GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 					new ItemStack(ModItems.GOLDPRECIP, 3),
@@ -134,7 +136,7 @@ public class ModRecipes {
 			));
 		}
 
-		GameRegistry.addRecipe(new ShapelessNBTRecipe( false,
+		GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
 				new ItemStack(ModItems.GOLDPRECIP, 3),
 				//Inputs
 				"dustSulfur",
