@@ -35,19 +35,19 @@ public class ModFluids {
 	public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();
 
 	static {
-		NEUTRAL = createFluidAcid("neutral", true, 0xffffff,
+		NEUTRAL = createFluidAcid("neutral", true, 0xc0ffffff,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
-		H2SO4 = createFluidAcid("h2so4", true, 0xa5ffff,
+		H2SO4 = createFluidAcid("h2so4", true, 0xc0a5ffff,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
-		HAUCL4 = createFluidAcid("haucl4", true, 0x5affffa5,
+		HAUCL4 = createFluidAcid("haucl4", true, 0xc0ffffa5,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
-		HCL = createFluidAcid("hcl", true, 0xffa5ff,
+		HCL = createFluidAcid("hcl", true, 0xc0ffa5ff,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
@@ -55,11 +55,11 @@ public class ModFluids {
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
-		HNO3 = createFluidAcid("hno3", true, 0xa5a5ff,
+		HNO3 = createFluidAcid("hno3", true, 0xc0a5a5ff,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 
-		HNO3HCL = createFluidAcid("hno3hcl", true, 0xffa5a5,
+		HNO3HCL = createFluidAcid("hno3hcl", true, 0xc0ffa5a5,
 				fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
 				fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER)));
 	}
