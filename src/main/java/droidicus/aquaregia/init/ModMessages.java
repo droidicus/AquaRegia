@@ -1,7 +1,7 @@
 package droidicus.aquaregia.init;
 
 import droidicus.aquaregia.AquaRegia;
-import droidicus.aquaregia.network.*;
+//import droidicus.aquaregia.network.*;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.relauncher.Side;

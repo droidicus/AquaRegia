@@ -1,6 +1,6 @@
 package droidicus.aquaregia.compat.waila;
 
-import droidicus.aquaregia.block.*;
+//import droidicus.aquaregia.block.*;
 import mcp.mobius.waila.api.IWailaRegistrar;
 
 /**

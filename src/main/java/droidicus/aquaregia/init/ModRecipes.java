@@ -1,35 +1,35 @@
 package droidicus.aquaregia.init;
 
 import droidicus.aquaregia.Logger;
-import droidicus.aquaregia.recipe.ShapedArmourUpgradeRecipe;
-import droidicus.aquaregia.recipe.ShapelessCuttingRecipe;
+//import droidicus.aquaregia.recipe.ShapedArmourUpgradeRecipe;
+//import droidicus.aquaregia.recipe.ShapelessCuttingRecipe;
 import droidicus.aquaregia.recipe.ShapelessNBTRecipe;
 import droidicus.aquaregia.config.Config;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.init.Blocks;
+//import net.minecraft.block.BlockPlanks;
+//import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.init.PotionTypes;
+//import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.RecipeFireworks;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.potion.PotionHelper;
+//import net.minecraft.item.crafting.RecipeFireworks;
+//import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.nbt.NBTTagList;
+//import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionType;
 import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fluids.UniversalBucket;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
+//import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
+//import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.Iterator;
 import java.util.List;
 
-import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPED;
+//import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPED;
 import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPELESS;
 
 /**

@@ -1,6 +1,5 @@
 package droidicus.aquaregia.proxy;
 
-
 import droidicus.aquaregia.client.event.ClientEventHandler;
 import droidicus.aquaregia.client.model.ModColourManager;
 import droidicus.aquaregia.client.model.ModModelManager;

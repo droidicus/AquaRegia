@@ -3,7 +3,6 @@ package droidicus.aquaregia.block;
 import java.util.Random;
 
 import droidicus.aquaregia.init.ModItems;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;

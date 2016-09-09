@@ -1,6 +1,6 @@
 package droidicus.aquaregia.init;
 
-import droidicus.aquaregia.potion.PotionAquaRegia;
+//import droidicus.aquaregia.potion.PotionAquaRegia;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

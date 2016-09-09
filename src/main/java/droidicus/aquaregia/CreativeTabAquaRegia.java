@@ -2,9 +2,9 @@ package droidicus.aquaregia;
 
 //import droidicus.aquaregia.util.SwordUpgrades;
 import droidicus.aquaregia.init.ModFluids;
-import droidicus.aquaregia.init.ModItems;
+//import droidicus.aquaregia.init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
+//import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeModContainer;

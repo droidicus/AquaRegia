@@ -1,22 +1,22 @@
 package droidicus.aquaregia.item;
 
-import droidicus.aquaregia.AquaRegia;
-import droidicus.aquaregia.init.ModLootTables;
-import droidicus.aquaregia.network.MessagePlayerReceivedLoot;
+//import droidicus.aquaregia.AquaRegia;
+//import droidicus.aquaregia.init.ModLootTables;
+//import droidicus.aquaregia.network.MessagePlayerReceivedLoot;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
+//import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentTranslation;
+//import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.storage.loot.LootContext;
+//import net.minecraft.world.WorldServer;
+//import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootTable;
-import net.minecraftforge.items.ItemHandlerHelper;
+//import net.minecraftforge.items.ItemHandlerHelper;
 
-import java.util.List;
+//import java.util.List;
 
 /**
  * Gives the player random loot from a {@link LootTable} when they right click.

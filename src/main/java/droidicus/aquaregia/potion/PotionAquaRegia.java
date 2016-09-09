@@ -11,7 +11,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.awt.*;
 
-
 /**
  * A base class for this mod's potions.
  *

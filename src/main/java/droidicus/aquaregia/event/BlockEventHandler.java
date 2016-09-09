@@ -1,18 +1,18 @@
-package droidicus.aquaregia.event;
-
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import javax.annotation.Nullable;
-
-public class BlockEventHandler {
+//package droidicus.aquaregia.event;
+//
+//import net.minecraft.block.state.IBlockState;
+//import net.minecraft.entity.player.EntityPlayer;
+//import net.minecraft.init.Items;
+//import net.minecraft.item.ItemStack;
+//import net.minecraft.util.math.BlockPos;
+//import net.minecraft.world.IBlockAccess;
+//import net.minecraftforge.event.entity.player.PlayerEvent;
+//import net.minecraftforge.event.world.BlockEvent;
+//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+//
+//import javax.annotation.Nullable;
+//
+//public class BlockEventHandler {
 //
 //	/**
 //	 * Can the tool harvest the block?
@@ -80,4 +80,4 @@ public class BlockEventHandler {
 //			event.setCanceled(true);
 //		}
 //	}
-}
+//}

@@ -3,9 +3,9 @@ package droidicus.aquaregia.init;
 import droidicus.aquaregia.AquaRegia;
 //import droidicus.aquaregia.entity.EntityModArrow;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.monster.EntityGuardian;
-import net.minecraftforge.common.BiomeDictionary;
+//import net.minecraft.entity.EnumCreatureType;
+//import net.minecraft.entity.monster.EntityGuardian;
+//import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class ModEntities {

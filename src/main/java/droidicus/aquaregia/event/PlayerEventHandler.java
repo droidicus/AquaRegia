@@ -1,25 +1,25 @@
-package droidicus.aquaregia.event;
-
-import droidicus.aquaregia.util.Constants;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.items.ItemHandlerHelper;
-
-/**
- * Handler for player-related events.
- *
- * @author Choonster
- */
-public class PlayerEventHandler {
+//package droidicus.aquaregia.event;
+//
+//import droidicus.aquaregia.util.Constants;
+//import net.minecraft.entity.player.EntityPlayer;
+//import net.minecraft.init.Items;
+//import net.minecraft.item.ItemStack;
+//import net.minecraft.nbt.NBTTagCompound;
+//import net.minecraft.util.math.BlockPos;
+//import net.minecraft.util.text.ITextComponent;
+//import net.minecraft.util.text.TextComponentTranslation;
+//import net.minecraft.util.text.TextFormatting;
+//import net.minecraftforge.event.entity.living.LivingDeathEvent;
+//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+//import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+//import net.minecraftforge.items.ItemHandlerHelper;
+//
+///**
+// * Handler for player-related events.
+// *
+// * @author Choonster
+// */
+//public class PlayerEventHandler {
 //
 //	/**
 //	 * Give the player an Apple when they first log in.
@@ -66,4 +66,4 @@ public class PlayerEventHandler {
 //			player.addChatComponentMessage(new TextComponentTranslation("message.aquaregia:death.coordinates", pos.getX(), pos.getY(), pos.getZ()));
 //		}
 //	}
-}
+//}
