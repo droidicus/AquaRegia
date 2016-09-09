@@ -14,27 +14,27 @@ import java.util.Map;
  * @author Choonster
  */
 public class CommandAquaRegiaHelp extends CommandHelp {
-	/**
-	 * The {@link ISubCommandManager} this is registered with.
-	 */
-	private final ISubCommandManager subCommandManager;
+    /**
+     * The {@link ISubCommandManager} this is registered with.
+     */
+    private final ISubCommandManager subCommandManager;
 
-	public CommandAquaRegiaHelp(ISubCommandManager subCommandManager) {
-		this.subCommandManager = subCommandManager;
-	}
+    public CommandAquaRegiaHelp(ISubCommandManager subCommandManager) {
+        this.subCommandManager = subCommandManager;
+    }
 
-	@Override
-	public String getCommandUsage(ICommandSender sender) {
-		return "commands.aquaregia:help.usage";
-	}
+    @Override
+    public String getCommandUsage(ICommandSender sender) {
+        return "commands.aquaregia:help.usage";
+    }
 
-	@Override
-	protected Map<String, ICommand> getCommandMap(MinecraftServer server) {
-		return subCommandManager.getCommands();
-	}
+    @Override
+    protected Map<String, ICommand> getCommandMap(MinecraftServer server) {
+        return subCommandManager.getCommands();
+    }
 
-	@Override
-	protected List<ICommand> getSortedPossibleCommands(ICommandSender sender, MinecraftServer server) {
-		return subCommandManager.getPossibleCommands(sender);
-	}
+    @Override
+    protected List<ICommand> getSortedPossibleCommands(ICommandSender sender, MinecraftServer server) {
+        return subCommandManager.getPossibleCommands(sender);
+    }
 }

@@ -17,33 +17,33 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
  * @author Choonster
  */
 public class ShapedArmourUpgradeRecipe extends ShapedOreRecipe {
-	public ShapedArmourUpgradeRecipe(Block result, Object... recipe) {
-		super(result, recipe);
-	}
+    public ShapedArmourUpgradeRecipe(Block result, Object... recipe) {
+        super(result, recipe);
+    }
 
-	public ShapedArmourUpgradeRecipe(Item result, Object... recipe) {
-		super(result, recipe);
-	}
+    public ShapedArmourUpgradeRecipe(Item result, Object... recipe) {
+        super(result, recipe);
+    }
 
-	public ShapedArmourUpgradeRecipe(ItemStack result, Object... recipe) {
-		super(result, recipe);
-	}
+    public ShapedArmourUpgradeRecipe(ItemStack result, Object... recipe) {
+        super(result, recipe);
+    }
 
-	@Override
-	public ItemStack getCraftingResult(InventoryCrafting inv) {
-		final ItemStack output = super.getCraftingResult(inv); // Get the default output
+    @Override
+    public ItemStack getCraftingResult(InventoryCrafting inv) {
+        final ItemStack output = super.getCraftingResult(inv); // Get the default output
 
-		for (int i = 0; i < inv.getSizeInventory(); i++) { // For each slot in the crafting inventory,
-			final ItemStack ingredient = inv.getStackInSlot(i); // Get the ingredient in the slot
+        for (int i = 0; i < inv.getSizeInventory(); i++) { // For each slot in the crafting inventory,
+            final ItemStack ingredient = inv.getStackInSlot(i); // Get the ingredient in the slot
 
-			if (ingredient != null && ingredient.getItem() instanceof ItemArmor) { // If it's an armour item,
-				// Clone its item damage, clamping it to the output's damage range
-				final int newDamage = MathHelper.clamp_int(ingredient.getItemDamage(), 0, output.getMaxDamage());
-				output.setItemDamage(newDamage);
-				break; // Break now
-			}
-		}
+            if (ingredient != null && ingredient.getItem() instanceof ItemArmor) { // If it's an armour item,
+                // Clone its item damage, clamping it to the output's damage range
+                final int newDamage = MathHelper.clamp_int(ingredient.getItemDamage(), 0, output.getMaxDamage());
+                output.setItemDamage(newDamage);
+                break; // Break now
+            }
+        }
 
-		return output; // Return the modified output
-	}
+        return output; // Return the modified output
+    }
 }

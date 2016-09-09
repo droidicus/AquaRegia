@@ -17,16 +17,16 @@ import javax.annotation.Nullable;
  * @see "MeshDefinitionFix"
  */
 public interface IItemPropertyGetterFix extends IItemPropertyGetter {
-	@SideOnly(Side.CLIENT)
-	float applyPropertyGetter(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn);
+    static IItemPropertyGetterFix create(IItemPropertyGetterFix lambda) {
+        return lambda;
+    }
 
-	static IItemPropertyGetterFix create(IItemPropertyGetterFix lambda) {
-		return lambda;
-	}
+    @SideOnly(Side.CLIENT)
+    float applyPropertyGetter(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn);
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	default float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
-		return applyPropertyGetter(stack, worldIn, entityIn);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    default float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+        return applyPropertyGetter(stack, worldIn, entityIn);
+    }
 }

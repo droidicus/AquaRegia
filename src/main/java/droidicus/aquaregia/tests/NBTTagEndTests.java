@@ -16,32 +16,32 @@ import java.io.IOException;
  * @author Choonster
  */
 public class NBTTagEndTests extends Test {
-	public static final NBTTagEndTests INSTANCE = new NBTTagEndTests();
+    public static final NBTTagEndTests INSTANCE = new NBTTagEndTests();
 
-	@Override
-	protected void runTest() {
-		final NBTTagCompound originalCompound = new NBTTagCompound();
-		originalCompound.setString("Tag1", "Test2");
-		originalCompound.setTag("EndTag", new NBTTagEnd());
-		originalCompound.setFloat("Tag2", 3.55f);
+    @Override
+    protected void runTest() {
+        final NBTTagCompound originalCompound = new NBTTagCompound();
+        originalCompound.setString("Tag1", "Test2");
+        originalCompound.setTag("EndTag", new NBTTagEnd());
+        originalCompound.setFloat("Tag2", 3.55f);
 
-		final File file = new File("./endTagTest.dat");
+        final File file = new File("./endTagTest.dat");
 
-		try {
-			CompressedStreamTools.write(originalCompound, file);
-		} catch (IOException e) {
-			exceptionThrown(e, "Failed to write to NBT file");
-			return;
-		}
+        try {
+            CompressedStreamTools.write(originalCompound, file);
+        } catch (IOException e) {
+            exceptionThrown(e, "Failed to write to NBT file");
+            return;
+        }
 
-		final NBTTagCompound readCompound;
-		try {
-			readCompound = CompressedStreamTools.read(file);
-		} catch (IOException e) {
-			exceptionThrown(e, "Failed to read from NBT file");
-			return;
-		}
+        final NBTTagCompound readCompound;
+        try {
+            readCompound = CompressedStreamTools.read(file);
+        } catch (IOException e) {
+            exceptionThrown(e, "Failed to read from NBT file");
+            return;
+        }
 
-		assertEqual(originalCompound, readCompound);
-	}
+        assertEqual(originalCompound, readCompound);
+    }
 }

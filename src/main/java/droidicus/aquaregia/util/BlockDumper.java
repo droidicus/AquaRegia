@@ -1,7 +1,7 @@
 package droidicus.aquaregia.util;
 
-import droidicus.aquaregia.Logger;
 import droidicus.aquaregia.AquaRegia;
+import droidicus.aquaregia.Logger;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -17,21 +17,21 @@ import java.util.stream.StreamSupport;
  * @author Choonster
  */
 public class BlockDumper {
-	public static void dump() {
-		try (final PrintWriter writer = new PrintWriter("AquaRegia_BlockDump_" + (FMLCommonHandler.instance().getEffectiveSide().isClient() ? "Client" : "Server") + ".txt", "UTF-8")) {
-			writer.println("Name - toString");
+    public static void dump() {
+        try (final PrintWriter writer = new PrintWriter("AquaRegia_BlockDump_" + (FMLCommonHandler.instance().getEffectiveSide().isClient() ? "Client" : "Server") + ".txt", "UTF-8")) {
+            writer.println("Name - toString");
 
-			StreamSupport.stream(ForgeRegistries.BLOCKS.spliterator(), false)
-					.filter(block -> block.getRegistryName().getResourceDomain().equals(AquaRegia.MODID))
-					.forEach(block -> {
-						final Item item = Item.getItemFromBlock(block);
-						if (item != null) {
-							writer.printf("%s - %s\n", item.getUnlocalizedName(), item.toString());
-						}
-					});
-		} catch (Exception e) {
-			Logger.fatal(e, "Exception dumping blocks");
+            StreamSupport.stream(ForgeRegistries.BLOCKS.spliterator(), false)
+                    .filter(block -> block.getRegistryName().getResourceDomain().equals(AquaRegia.MODID))
+                    .forEach(block -> {
+                        final Item item = Item.getItemFromBlock(block);
+                        if (item != null) {
+                            writer.printf("%s - %s\n", item.getUnlocalizedName(), item.toString());
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.fatal(e, "Exception dumping blocks");
 
-		}
-	}
+        }
+    }
 }

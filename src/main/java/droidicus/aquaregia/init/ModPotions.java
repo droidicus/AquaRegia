@@ -1,6 +1,7 @@
 package droidicus.aquaregia.init;
 
 //import droidicus.aquaregia.potion.PotionAquaRegia;
+
 import net.minecraft.potion.Potion;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -13,25 +14,25 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModPotions {
 //	public static final PotionAquaRegia TEST;
 
-	static {
+    static {
 //		TEST = registerPotion(new PotionAquaRegia(false, 2, 2, 2, "test"));
-	}
+    }
 
-	/**
-	 * Dummy method to ensure the static initialiser runs.
-	 */
-	public static void registerPotions() {
+    /**
+     * Dummy method to ensure the static initialiser runs.
+     */
+    public static void registerPotions() {
 
-	}
+    }
 
-	/**
-	 * Register a {@link Potion}.
-	 *
-	 * @param potion   The Potion instance
-	 * @param <POTION> The Potion type
-	 * @return The Potion instance
-	 */
-	private static <POTION extends Potion> POTION registerPotion(POTION potion) {
-		return GameRegistry.register(potion);
-	}
+    /**
+     * Register a {@link Potion}.
+     *
+     * @param potion   The Potion instance
+     * @param <POTION> The Potion type
+     * @return The Potion instance
+     */
+    private static <POTION extends Potion> POTION registerPotion(POTION potion) {
+        return GameRegistry.register(potion);
+    }
 }

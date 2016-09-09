@@ -20,21 +20,21 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class NetworkEventHandler {
 
-	/**
-	 * Prints server connection info when the client connects to a server.
-	 * <p>
-	 * Test for this thread:
-	 * http://www.minecraftforge.net/forum/index.php/topic,34546.0.html
-	 *
-	 * @param event The event
-	 */
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void clientConnectedToServer(FMLNetworkEvent.ClientConnectedToServerEvent event) {
-		final IThreadListener mainThread = Minecraft.getMinecraft();
-		mainThread.addScheduledTask(() -> {
-			final ServerData serverData = Minecraft.getMinecraft().getCurrentServerData();
-			Logger.info("Server Connected! Local? %s - Address: %s", event.isLocal(), serverData != null ? serverData.serverIP : "<No ServerData>");
-		});
-	}
+    /**
+     * Prints server connection info when the client connects to a server.
+     * <p>
+     * Test for this thread:
+     * http://www.minecraftforge.net/forum/index.php/topic,34546.0.html
+     *
+     * @param event The event
+     */
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void clientConnectedToServer(FMLNetworkEvent.ClientConnectedToServerEvent event) {
+        final IThreadListener mainThread = Minecraft.getMinecraft();
+        mainThread.addScheduledTask(() -> {
+            final ServerData serverData = Minecraft.getMinecraft().getCurrentServerData();
+            Logger.info("Server Connected! Local? %s - Address: %s", event.isLocal(), serverData != null ? serverData.serverIP : "<No ServerData>");
+        });
+    }
 }

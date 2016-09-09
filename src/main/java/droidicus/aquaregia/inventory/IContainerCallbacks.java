@@ -10,25 +10,25 @@ import net.minecraft.inventory.IInventory;
  * @author Choonster
  */
 public interface IContainerCallbacks {
-	/**
-	 * Called when the {@link Container} is opened by a player.
-	 *
-	 * @param player The player
-	 */
-	void onContainerOpened(EntityPlayer player);
+    /**
+     * Called when the {@link Container} is opened by a player.
+     *
+     * @param player The player
+     */
+    void onContainerOpened(EntityPlayer player);
 
-	/**
-	 * Called when the {@link Container} is closed by a player.
-	 *
-	 * @param player The player
-	 */
-	void onContainerClosed(EntityPlayer player);
+    /**
+     * Called when the {@link Container} is closed by a player.
+     *
+     * @param player The player
+     */
+    void onContainerClosed(EntityPlayer player);
 
-	/**
-	 * Is this usable by the specified player?
-	 *
-	 * @param player The player
-	 * @return Is this usable by the specified player?
-	 */
-	boolean isUsableByPlayer(EntityPlayer player);
+    /**
+     * Is this usable by the specified player?
+     *
+     * @param player The player
+     * @return Is this usable by the specified player?
+     */
+    boolean isUsableByPlayer(EntityPlayer player);
 }

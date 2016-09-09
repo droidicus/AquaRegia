@@ -9,11 +9,11 @@ import net.minecraft.command.ICommandManager;
  * @author Choonster
  */
 public interface ISubCommandManager extends ICommandManager {
-	/**
-	 * Register and return a sub-command.
-	 *
-	 * @param subCommand The sub-command
-	 * @return The sub-command
-	 */
-	ICommand registerSubCommand(ICommand subCommand);
+    /**
+     * Register and return a sub-command.
+     *
+     * @param subCommand The sub-command
+     * @return The sub-command
+     */
+    ICommand registerSubCommand(ICommand subCommand);
 }

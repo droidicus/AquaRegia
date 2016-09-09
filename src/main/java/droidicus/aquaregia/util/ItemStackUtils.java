@@ -10,17 +10,17 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class ItemStackUtils {
 
-	/**
-	 * Get or create the compound tag of an ItemStack
-	 *
-	 * @param itemStack The ItemStack
-	 * @return The compound tag
-	 */
-	public static NBTTagCompound getOrCreateTagCompound(ItemStack itemStack) {
-		if (!itemStack.hasTagCompound()) {
-			itemStack.setTagCompound(new NBTTagCompound());
-		}
+    /**
+     * Get or create the compound tag of an ItemStack
+     *
+     * @param itemStack The ItemStack
+     * @return The compound tag
+     */
+    public static NBTTagCompound getOrCreateTagCompound(ItemStack itemStack) {
+        if (!itemStack.hasTagCompound()) {
+            itemStack.setTagCompound(new NBTTagCompound());
+        }
 
-		return itemStack.getTagCompound();
-	}
+        return itemStack.getTagCompound();
+    }
 }

@@ -13,7 +13,7 @@ public class FluidAcid extends Fluid {
         super(fluidName, still, flowing);
 
         // make opaque if no alpha is set
-        if(((color >> 24) & 0xFF) == 0) {
+        if (((color >> 24) & 0xFF) == 0) {
             color |= 0xFF << 24;
         }
         this.color = color;

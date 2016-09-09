@@ -6,13 +6,13 @@ package droidicus.aquaregia.tests;
  * @author Choonster
  */
 public class Tests {
-	public static boolean runTests() {
-		boolean allTestsPassed;
+    public static boolean runTests() {
+        boolean allTestsPassed;
 
-		allTestsPassed = OreDictUtilTests.INSTANCE.test();
-		//		NBTTagEndTests.INSTANCE.test();
-		allTestsPassed &= HttpClientTests.INSTANCE.test();
+        allTestsPassed = OreDictUtilTests.INSTANCE.test();
+        //		NBTTagEndTests.INSTANCE.test();
+        allTestsPassed &= HttpClientTests.INSTANCE.test();
 
-		return allTestsPassed;
-	}
+        return allTestsPassed;
+    }
 }

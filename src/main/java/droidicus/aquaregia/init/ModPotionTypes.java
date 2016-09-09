@@ -30,50 +30,50 @@ public class ModPotionTypes {
 //	public static final PotionType LONG_TEST;
 //	public static final PotionType STRONG_TEST;
 
-	static {
+    static {
 //		TEST = createPotionType(new PotionEffect(ModPotions.TEST, HELPFUL_DURATION_STANDARD));
 //		LONG_TEST = createPotionType(new PotionEffect(ModPotions.TEST, HELPFUL_DURATION_LONG), LONG_PREFIX);
 //		STRONG_TEST = createPotionType(new PotionEffect(ModPotions.TEST, HELPFUL_DURATION_STRONG, 1), STRONG_PREFIX);
-	}
+    }
 
-	/**
-	 * Dummy method to ensure the static initialiser runs.
-	 */
-	public static void registerPotionTypes() {
+    /**
+     * Dummy method to ensure the static initialiser runs.
+     */
+    public static void registerPotionTypes() {
 
-	}
+    }
 
-	/**
-	 * Create a {@link PotionType} from the specified {@link PotionEffect}.
-	 * <p>
-	 * Uses the {@link Potion}'s registry name as the {@link PotionType}'s registry name and name.
-	 *
-	 * @param potionEffect The PotionEffect
-	 * @return The PotionType
-	 */
-	private static PotionType createPotionType(PotionEffect potionEffect) {
-		return createPotionType(potionEffect, null);
-	}
+    /**
+     * Create a {@link PotionType} from the specified {@link PotionEffect}.
+     * <p>
+     * Uses the {@link Potion}'s registry name as the {@link PotionType}'s registry name and name.
+     *
+     * @param potionEffect The PotionEffect
+     * @return The PotionType
+     */
+    private static PotionType createPotionType(PotionEffect potionEffect) {
+        return createPotionType(potionEffect, null);
+    }
 
-	/**
-	 * Create a {@link PotionType} from the specified {@link PotionEffect}
-	 * <p>
-	 * Uses the {@link Potion}'s registry name as the {@link PotionType}'s registry name (with an optional prefix) and name (with no prefix).
-	 *
-	 * @param potionEffect The PotionEffect
-	 * @param namePrefix   The name prefix, if any
-	 * @return The PotionType
-	 */
-	private static PotionType createPotionType(PotionEffect potionEffect, @Nullable String namePrefix) {
-		final ResourceLocation potionName = potionEffect.getPotion().getRegistryName();
+    /**
+     * Create a {@link PotionType} from the specified {@link PotionEffect}
+     * <p>
+     * Uses the {@link Potion}'s registry name as the {@link PotionType}'s registry name (with an optional prefix) and name (with no prefix).
+     *
+     * @param potionEffect The PotionEffect
+     * @param namePrefix   The name prefix, if any
+     * @return The PotionType
+     */
+    private static PotionType createPotionType(PotionEffect potionEffect, @Nullable String namePrefix) {
+        final ResourceLocation potionName = potionEffect.getPotion().getRegistryName();
 
-		final ResourceLocation potionTypeName;
-		if (namePrefix != null) {
-			potionTypeName = new ResourceLocation(potionName.getResourceDomain(), namePrefix + potionName.getResourcePath());
-		} else {
-			potionTypeName = potionName;
-		}
+        final ResourceLocation potionTypeName;
+        if (namePrefix != null) {
+            potionTypeName = new ResourceLocation(potionName.getResourceDomain(), namePrefix + potionName.getResourcePath());
+        } else {
+            potionTypeName = potionName;
+        }
 
-		return GameRegistry.register(new PotionType(potionName.toString(), potionEffect).setRegistryName(potionTypeName));
-	}
+        return GameRegistry.register(new PotionType(potionName.toString(), potionEffect).setRegistryName(potionTypeName));
+    }
 }

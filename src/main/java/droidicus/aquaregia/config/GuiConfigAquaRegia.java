@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GuiConfigAquaRegia extends GuiConfig {
-	public GuiConfigAquaRegia(GuiScreen parentScreen) {
-		super(parentScreen, getConfigElements(), AquaRegia.MODID, false, false, I18n.format(Config.LANG_PREFIX + "title"));
-	}
+    public GuiConfigAquaRegia(GuiScreen parentScreen) {
+        super(parentScreen, getConfigElements(), AquaRegia.MODID, false, false, I18n.format(Config.LANG_PREFIX + "title"));
+    }
 
-	private static List<IConfigElement> getConfigElements() {
-		return Config.config.getCategoryNames().stream()
-				.map(categoryName -> new ConfigElement(Config.config.getCategory(categoryName).setLanguageKey(Config.LANG_PREFIX + categoryName)))
-				.collect(Collectors.toList());
-	}
+    private static List<IConfigElement> getConfigElements() {
+        return Config.config.getCategoryNames().stream()
+                .map(categoryName -> new ConfigElement(Config.config.getCategory(categoryName).setLanguageKey(Config.LANG_PREFIX + categoryName)))
+                .collect(Collectors.toList());
+    }
 }

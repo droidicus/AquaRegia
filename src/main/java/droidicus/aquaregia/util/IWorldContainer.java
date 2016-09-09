@@ -9,10 +9,10 @@ import net.minecraft.world.World;
  */
 public interface IWorldContainer {
 
-	/**
-	 * Get the {@link World}.
-	 *
-	 * @return The World
-	 */
-	World getContainedWorld();
+    /**
+     * Get the {@link World}.
+     *
+     * @return The World
+     */
+    World getContainedWorld();
 }

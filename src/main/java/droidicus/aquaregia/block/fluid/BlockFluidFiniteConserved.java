@@ -20,12 +20,12 @@ public class BlockFluidFiniteConserved extends BlockFluidFinite {
     @Override
     public FluidStack drain(World world, BlockPos pos, boolean doDrain) {
         int quantaValue = this.getQuantaValue(world, pos);
-        FluidStack fluidStack = new FluidStack(this.getFluid(), 1000*(quantaValue>0?1:0));
-        if(doDrain) {
+        FluidStack fluidStack = new FluidStack(this.getFluid(), 1000 * (quantaValue > 0 ? 1 : 0));
+        if (doDrain) {
             if (quantaValue == 1) {
                 world.setBlockToAir(pos);
             } else {
-                world.setBlockState(pos, world.getBlockState(pos).withProperty(LEVEL, quantaValue-2), 2);
+                world.setBlockState(pos, world.getBlockState(pos).withProperty(LEVEL, quantaValue - 2), 2);
             }
         }
 

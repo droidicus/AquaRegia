@@ -16,35 +16,35 @@ import java.util.Random;
  * @author Choonster
  */
 public class ShapelessCuttingRecipe extends ShapelessRecipes {
-	private final Random random = new Random();
+    private final Random random = new Random();
 
-	public ShapelessCuttingRecipe(ItemStack output, ItemStack... input) {
-		super(output, Arrays.asList(input));
-	}
+    public ShapelessCuttingRecipe(ItemStack output, ItemStack... input) {
+        super(output, Arrays.asList(input));
+    }
 
-	private ItemStack damageAxe(ItemStack stack) {
-		if (stack.attemptDamageItem(1, random)) {
-			ForgeEventFactory.onPlayerDestroyItem(ForgeHooks.getCraftingPlayer(), stack, null);
-			return null;
-		}
+    private ItemStack damageAxe(ItemStack stack) {
+        if (stack.attemptDamageItem(1, random)) {
+            ForgeEventFactory.onPlayerDestroyItem(ForgeHooks.getCraftingPlayer(), stack, null);
+            return null;
+        }
 
-		return stack;
-	}
+        return stack;
+    }
 
-	@Override
-	public ItemStack[] getRemainingItems(InventoryCrafting inventoryCrafting) {
-		final ItemStack[] remainingItems = new ItemStack[inventoryCrafting.getSizeInventory()];
+    @Override
+    public ItemStack[] getRemainingItems(InventoryCrafting inventoryCrafting) {
+        final ItemStack[] remainingItems = new ItemStack[inventoryCrafting.getSizeInventory()];
 
-		for (int i = 0; i < remainingItems.length; ++i) {
-			final ItemStack itemstack = inventoryCrafting.getStackInSlot(i);
+        for (int i = 0; i < remainingItems.length; ++i) {
+            final ItemStack itemstack = inventoryCrafting.getStackInSlot(i);
 
-			if (itemstack != null && itemstack.getItem() instanceof ItemAxe) {
-				remainingItems[i] = damageAxe(itemstack.copy());
-			} else {
-				remainingItems[i] = ForgeHooks.getContainerItem(itemstack);
-			}
-		}
+            if (itemstack != null && itemstack.getItem() instanceof ItemAxe) {
+                remainingItems[i] = damageAxe(itemstack.copy());
+            } else {
+                remainingItems[i] = ForgeHooks.getContainerItem(itemstack);
+            }
+        }
 
-		return remainingItems;
-	}
+        return remainingItems;
+    }
 }

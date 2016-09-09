@@ -12,37 +12,37 @@ import net.minecraftforge.items.wrapper.CombinedInvWrapper;
  * @author Choonster
  */
 public class NameableCombinedInvWrapper extends CombinedInvWrapper implements IItemHandlerNameable {
-	/**
-	 * The {@link IWorldNameable} to get the name from.
-	 */
-	private final IWorldNameable worldNameable;
+    /**
+     * The {@link IWorldNameable} to get the name from.
+     */
+    private final IWorldNameable worldNameable;
 
-	public NameableCombinedInvWrapper(IWorldNameable worldNameable, IItemHandlerModifiable... itemHandler) {
-		super(itemHandler);
-		this.worldNameable = worldNameable;
-	}
+    public NameableCombinedInvWrapper(IWorldNameable worldNameable, IItemHandlerModifiable... itemHandler) {
+        super(itemHandler);
+        this.worldNameable = worldNameable;
+    }
 
-	/**
-	 * Get the name of this object. For players this returns their username
-	 */
-	@Override
-	public String getName() {
-		return worldNameable.getName();
-	}
+    /**
+     * Get the name of this object. For players this returns their username
+     */
+    @Override
+    public String getName() {
+        return worldNameable.getName();
+    }
 
-	/**
-	 * Returns true if this thing is named
-	 */
-	@Override
-	public boolean hasCustomName() {
-		return worldNameable.hasCustomName();
-	}
+    /**
+     * Returns true if this thing is named
+     */
+    @Override
+    public boolean hasCustomName() {
+        return worldNameable.hasCustomName();
+    }
 
-	/**
-	 * Get the formatted ChatComponent that will be used for the sender's username in chat
-	 */
-	@Override
-	public ITextComponent getDisplayName() {
-		return worldNameable.getDisplayName();
-	}
+    /**
+     * Get the formatted ChatComponent that will be used for the sender's username in chat
+     */
+    @Override
+    public ITextComponent getDisplayName() {
+        return worldNameable.getDisplayName();
+    }
 }

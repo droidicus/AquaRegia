@@ -13,45 +13,45 @@ import net.minecraft.util.text.TextComponentTranslation;
  * @author Choonster
  */
 public class CommandRunTests extends CommandBase {
-	/**
-	 * Return the required permission level for this command.
-	 */
-	@Override
-	public int getRequiredPermissionLevel() {
-		return 0;
-	}
+    /**
+     * Return the required permission level for this command.
+     */
+    @Override
+    public int getRequiredPermissionLevel() {
+        return 0;
+    }
 
-	/**
-	 * Gets the name of the command.
-	 */
-	@Override
-	public String getCommandName() {
-		return "runtests";
-	}
+    /**
+     * Gets the name of the command.
+     */
+    @Override
+    public String getCommandName() {
+        return "runtests";
+    }
 
-	/**
-	 * Gets the usage string for the command.
-	 *
-	 * @param sender The command sender that executed the command
-	 */
-	@Override
-	public String getCommandUsage(ICommandSender sender) {
-		return "commands.aquaregia.runtests.usage";
-	}
+    /**
+     * Gets the usage string for the command.
+     *
+     * @param sender The command sender that executed the command
+     */
+    @Override
+    public String getCommandUsage(ICommandSender sender) {
+        return "commands.aquaregia.runtests.usage";
+    }
 
-	/**
-	 * Callback for when the command is executed
-	 *
-	 * @param server The Minecraft server instance
-	 * @param sender The source of the command invocation
-	 * @param args   The arguments that were passed
-	 */
-	@Override
-	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		if (Tests.runTests()) {
-			sender.addChatMessage(new TextComponentTranslation("commands.aquaregia.runtests.tests_passed"));
-		} else {
-			sender.addChatMessage(new TextComponentTranslation("commands.aquaregia.runtests.tests_failed"));
-		}
-	}
+    /**
+     * Callback for when the command is executed
+     *
+     * @param server The Minecraft server instance
+     * @param sender The source of the command invocation
+     * @param args   The arguments that were passed
+     */
+    @Override
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+        if (Tests.runTests()) {
+            sender.addChatMessage(new TextComponentTranslation("commands.aquaregia.runtests.tests_passed"));
+        } else {
+            sender.addChatMessage(new TextComponentTranslation("commands.aquaregia.runtests.tests_failed"));
+        }
+    }
 }

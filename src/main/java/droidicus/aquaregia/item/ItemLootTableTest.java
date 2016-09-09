@@ -3,17 +3,19 @@ package droidicus.aquaregia.item;
 //import droidicus.aquaregia.AquaRegia;
 //import droidicus.aquaregia.init.ModLootTables;
 //import droidicus.aquaregia.network.MessagePlayerReceivedLoot;
+
 import net.minecraft.entity.player.EntityPlayer;
-//import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-//import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTable;
+
+//import net.minecraft.entity.player.EntityPlayerMP;
+//import net.minecraft.util.text.TextComponentTranslation;
 //import net.minecraft.world.WorldServer;
 //import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootTable;
 //import net.minecraftforge.items.ItemHandlerHelper;
 
 //import java.util.List;
@@ -27,13 +29,13 @@ import net.minecraft.world.storage.loot.LootTable;
  * @author Choonster
  */
 public class ItemLootTableTest extends ItemAquaRegia {
-	public ItemLootTableTest() {
-		super("loot_table_test");
-	}
+    public ItemLootTableTest() {
+        super("loot_table_test");
+    }
 
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		if (!worldIn.isRemote) {
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+        if (!worldIn.isRemote) {
 //			final LootTable lootTable = worldIn.getLootTableManager().getLootTableFromLocation(ModLootTables.LOOT_TABLE_TEST);
 //
 //			final LootContext lootContext = new LootContext.Builder((WorldServer) worldIn).withPlayer(playerIn).build();
@@ -50,9 +52,9 @@ public class ItemLootTableTest extends ItemAquaRegia {
 //			} else {
 //				playerIn.addChatComponentMessage(new TextComponentTranslation("message.aquaregia:player_received_loot.noLoot"));
 //			}
-		}
+        }
 
 
-		return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-	}
+        return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+    }
 }

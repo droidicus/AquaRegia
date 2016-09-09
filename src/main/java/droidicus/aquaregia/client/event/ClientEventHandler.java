@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ClientEventHandler {
 
-	private final Minecraft MINECRAFT = Minecraft.getMinecraft();
+    private final Minecraft MINECRAFT = Minecraft.getMinecraft();
 //
 //	@SubscribeEvent
 //	public void onFOVUpdate(FOVUpdateEvent event) {

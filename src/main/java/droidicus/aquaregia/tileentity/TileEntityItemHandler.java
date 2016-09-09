@@ -20,59 +20,59 @@ import java.util.List;
  * @param <INVENTORY> The inventory type
  */
 public abstract class TileEntityItemHandler<INVENTORY extends IItemHandler & INBTSerializable<NBTTagCompound>> extends TileEntity {
-	/**
-	 * The inventory.
-	 */
-	protected final INVENTORY inventory = createInventory();
+    /**
+     * The inventory.
+     */
+    protected final INVENTORY inventory = createInventory();
 
-	/**
-	 * Create and return the inventory.
-	 *
-	 * @return The inventory
-	 */
-	protected abstract INVENTORY createInventory();
+    /**
+     * Create and return the inventory.
+     *
+     * @return The inventory
+     */
+    protected abstract INVENTORY createInventory();
 
-	/**
-	 * Create a {@link Container} of this inventory for the specified player.
-	 *
-	 * @param player The player
-	 * @return The Container
-	 */
-	public abstract Container createContainer(EntityPlayer player);
+    /**
+     * Create a {@link Container} of this inventory for the specified player.
+     *
+     * @param player The player
+     * @return The Container
+     */
+    public abstract Container createContainer(EntityPlayer player);
 
-	/**
-	 * Get the inventory contents to drop.
-	 *
-	 * @return The drops list
-	 */
-	public List<ItemStack> getDrops() {
-		return InventoryUtils.dropItemHandlerContents(inventory, getWorld().rand);
-	}
+    /**
+     * Get the inventory contents to drop.
+     *
+     * @return The drops list
+     */
+    public List<ItemStack> getDrops() {
+        return InventoryUtils.dropItemHandlerContents(inventory, getWorld().rand);
+    }
 
-	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		inventory.deserializeNBT(compound.getCompoundTag("ItemHandler"));
-	}
+    @Override
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        inventory.deserializeNBT(compound.getCompoundTag("ItemHandler"));
+    }
 
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		super.writeToNBT(compound);
-		compound.setTag("ItemHandler", inventory.serializeNBT());
-		return compound;
-	}
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setTag("ItemHandler", inventory.serializeNBT());
+        return compound;
+    }
 
-	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
-		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
-	}
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
+        return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
+    }
 
-	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inventory);
-		}
+    @Override
+    public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inventory);
+        }
 
-		return super.getCapability(capability, facing);
-	}
+        return super.getCapability(capability, facing);
+    }
 }

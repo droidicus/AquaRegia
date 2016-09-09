@@ -8,23 +8,23 @@ import net.minecraftforge.fml.client.IModGuiFactory;
 import java.util.Set;
 
 public class GuiConfigFactoryAquaRegia implements IModGuiFactory {
-	@Override
-	public void initialize(Minecraft minecraftInstance) {
+    @Override
+    public void initialize(Minecraft minecraftInstance) {
 
-	}
+    }
 
-	@Override
-	public Class<? extends GuiScreen> mainConfigGuiClass() {
-		return GuiConfigAquaRegia.class;
-	}
+    @Override
+    public Class<? extends GuiScreen> mainConfigGuiClass() {
+        return GuiConfigAquaRegia.class;
+    }
 
-	@Override
-	public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
-		return null;
-	}
+    @Override
+    public Set<RuntimeOptionCategoryElement> runtimeGuiCategories() {
+        return null;
+    }
 
-	@Override
-	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
-		return null;
-	}
+    @Override
+    public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
+        return null;
+    }
 }

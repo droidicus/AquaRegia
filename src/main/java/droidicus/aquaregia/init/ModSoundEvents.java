@@ -16,27 +16,27 @@ public class ModSoundEvents {
 //	public static final SoundEvent NINE_MM_FIRE;
 //	public static final SoundEvent ACTION_SADDLE;
 
-	static {
+    static {
 //		RECORD_SOLARIS = registerSound("record.solaris");
 //		NINE_MM_FIRE = registerSound("9mm.fire");
 //		ACTION_SADDLE = registerSound("action.saddle");
-	}
+    }
 
-	/**
-	 * Register the {@link SoundEvent}s.
-	 */
-	public static void registerSounds() {
-		// Dummy method to make sure the static initialiser runs
-	}
+    /**
+     * Register the {@link SoundEvent}s.
+     */
+    public static void registerSounds() {
+        // Dummy method to make sure the static initialiser runs
+    }
 
-	/**
-	 * Register a {@link SoundEvent}.
-	 *
-	 * @param soundName The SoundEvent's name without the aquaregia prefix
-	 * @return The SoundEvent
-	 */
-	private static SoundEvent registerSound(String soundName) {
-		final ResourceLocation soundID = new ResourceLocation(AquaRegia.MODID, soundName);
-		return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
-	}
+    /**
+     * Register a {@link SoundEvent}.
+     *
+     * @param soundName The SoundEvent's name without the aquaregia prefix
+     * @return The SoundEvent
+     */
+    private static SoundEvent registerSound(String soundName) {
+        final ResourceLocation soundID = new ResourceLocation(AquaRegia.MODID, soundName);
+        return GameRegistry.register(new SoundEvent(soundID).setRegistryName(soundID));
+    }
 }

@@ -13,13 +13,13 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class ModLootTables {
 //	public static final ResourceLocation LOOT_TABLE_TEST = register("loot_table_test");
 
-	/**
-	 * Register a {@link LootTable} with the specified ID.
-	 *
-	 * @param id The ID of the LootTable without the aquaregia: prefix
-	 * @return The ID of the LootTable
-	 */
-	private static ResourceLocation register(String id) {
-		return LootTableList.register(new ResourceLocation(AquaRegia.MODID, id));
-	}
+    /**
+     * Register a {@link LootTable} with the specified ID.
+     *
+     * @param id The ID of the LootTable without the aquaregia: prefix
+     * @return The ID of the LootTable
+     */
+    private static ResourceLocation register(String id) {
+        return LootTableList.register(new ResourceLocation(AquaRegia.MODID, id));
+    }
 }

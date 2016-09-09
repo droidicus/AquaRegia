@@ -13,8 +13,8 @@ import net.minecraft.world.storage.loot.LootTable;
  */
 public abstract class TileEntityItemHandlerLoot extends TileEntityItemHandler<ItemHandlerLoot> implements IWorldContainer {
 
-	@Override
-	public World getContainedWorld() {
-		return getWorld();
-	}
+    @Override
+    public World getContainedWorld() {
+        return getWorld();
+    }
 }

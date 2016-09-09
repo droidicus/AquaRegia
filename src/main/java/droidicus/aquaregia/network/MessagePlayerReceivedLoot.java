@@ -24,86 +24,86 @@ import java.util.Collection;
  * @author Choonster
  */
 public class MessagePlayerReceivedLoot implements IMessage {
-	/**
-	 * The {@link ItemStack}s received by the player.
-	 */
-	private ItemStack[] itemStacks;
+    /**
+     * The {@link ItemStack}s received by the player.
+     */
+    private ItemStack[] itemStacks;
 
-	@SuppressWarnings("unused")
-	public MessagePlayerReceivedLoot() {
-	}
+    @SuppressWarnings("unused")
+    public MessagePlayerReceivedLoot() {
+    }
 
-	public MessagePlayerReceivedLoot(Collection<ItemStack> itemStacks) {
-		this.itemStacks = itemStacks.toArray(new ItemStack[itemStacks.size()]);
-	}
+    public MessagePlayerReceivedLoot(Collection<ItemStack> itemStacks) {
+        this.itemStacks = itemStacks.toArray(new ItemStack[itemStacks.size()]);
+    }
 
-	/**
-	 * Convert from the supplied buffer into your specific message type
-	 *
-	 * @param buf The buffer
-	 */
-	@Override
-	public void fromBytes(ByteBuf buf) {
-		final int numStacks = buf.readInt();
+    /**
+     * Convert from the supplied buffer into your specific message type
+     *
+     * @param buf The buffer
+     */
+    @Override
+    public void fromBytes(ByteBuf buf) {
+        final int numStacks = buf.readInt();
 
-		itemStacks = new ItemStack[numStacks];
+        itemStacks = new ItemStack[numStacks];
 
-		for (int i = 0; i < numStacks; i++) {
-			itemStacks[i] = ByteBufUtils.readItemStack(buf);
-		}
-	}
+        for (int i = 0; i < numStacks; i++) {
+            itemStacks[i] = ByteBufUtils.readItemStack(buf);
+        }
+    }
 
-	/**
-	 * Deconstruct your message into the supplied byte buffer
-	 *
-	 * @param buf The buffer
-	 */
-	@Override
-	public void toBytes(ByteBuf buf) {
-		buf.writeInt(itemStacks.length);
+    /**
+     * Deconstruct your message into the supplied byte buffer
+     *
+     * @param buf The buffer
+     */
+    @Override
+    public void toBytes(ByteBuf buf) {
+        buf.writeInt(itemStacks.length);
 
-		for (ItemStack itemStack : itemStacks) {
-			ByteBufUtils.writeItemStack(buf, itemStack);
-		}
-	}
+        for (ItemStack itemStack : itemStacks) {
+            ByteBufUtils.writeItemStack(buf, itemStack);
+        }
+    }
 
-	public static class Handler implements IMessageHandler<MessagePlayerReceivedLoot, IMessage> {
+    public static class Handler implements IMessageHandler<MessagePlayerReceivedLoot, IMessage> {
 
-		/**
-		 * Get an {@link ITextComponent} with the quantity and display name of the {@link ItemStack}.
-		 *
-		 * @param itemStack The ItemStack
-		 * @return The ITextComponent
-		 */
-		private ITextComponent getItemStackTextComponent(ItemStack itemStack) {
-			return new TextComponentTranslation("message.aquaregia:player_received_loot.item", itemStack.stackSize, itemStack.getTextComponent());
-		}
+        /**
+         * Get an {@link ITextComponent} with the quantity and display name of the {@link ItemStack}.
+         *
+         * @param itemStack The ItemStack
+         * @return The ITextComponent
+         */
+        private ITextComponent getItemStackTextComponent(ItemStack itemStack) {
+            return new TextComponentTranslation("message.aquaregia:player_received_loot.item", itemStack.stackSize, itemStack.getTextComponent());
+        }
 
-		/**
-		 * Called when a message is received of the appropriate type. You can optionally return a reply message, or null if no reply
-		 * is needed.
-		 *
-		 * @param message The message
-		 * @param ctx     The message context
-		 * @return an optional return message
-		 */
-		@Override
-		public IMessage onMessage(final MessagePlayerReceivedLoot message, final MessageContext ctx) {
-			Minecraft.getMinecraft().addScheduledTask(() -> {
-				final EntityPlayer player = AquaRegia.proxy.getClientPlayer();
+        /**
+         * Called when a message is received of the appropriate type. You can optionally return a reply message, or null if no reply
+         * is needed.
+         *
+         * @param message The message
+         * @param ctx     The message context
+         * @return an optional return message
+         */
+        @Override
+        public IMessage onMessage(final MessagePlayerReceivedLoot message, final MessageContext ctx) {
+            Minecraft.getMinecraft().addScheduledTask(() -> {
+                final EntityPlayer player = AquaRegia.proxy.getClientPlayer();
 
-				final ITextComponent lootMessage = getItemStackTextComponent(message.itemStacks[0]);
-				for (int i = 1; i < message.itemStacks.length; i++) {
-					lootMessage.appendText(", ");
-					lootMessage.appendSibling(getItemStackTextComponent(message.itemStacks[i]));
-				}
+                final ITextComponent lootMessage = getItemStackTextComponent(message.itemStacks[0]);
+                for (int i = 1; i < message.itemStacks.length; i++) {
+                    lootMessage.appendText(", ");
+                    lootMessage.appendSibling(getItemStackTextComponent(message.itemStacks[i]));
+                }
 
-				final ITextComponent chatMessage = new TextComponentTranslation("message.aquaregia:player_received_loot.base", lootMessage);
+                final ITextComponent chatMessage = new TextComponentTranslation("message.aquaregia:player_received_loot.base", lootMessage);
 
-				player.addChatComponentMessage(chatMessage);
-			});
+                player.addChatComponentMessage(chatMessage);
+            });
 
-			return null;
-		}
-	}
+            return null;
+        }
+    }
 }

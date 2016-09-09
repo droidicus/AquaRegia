@@ -1,6 +1,7 @@
 package droidicus.aquaregia.compat.waila;
 
 //import droidicus.aquaregia.block.*;
+
 import mcp.mobius.waila.api.IWailaRegistrar;
 
 /**
@@ -8,7 +9,7 @@ import mcp.mobius.waila.api.IWailaRegistrar;
  */
 public class WailaCompat {
 
-	public static void register(IWailaRegistrar registrar) {
+    public static void register(IWailaRegistrar registrar) {
 //		registrar.registerStackProvider(HUDHandlerVariantTileEntityBlocks.INSTANCE, BlockColoredRotatable.class);
 //		registrar.registerBodyProvider(new HUDHandlerRotatable(BlockColoredRotatable.FACING), BlockColoredRotatable.class);
 //		registrar.registerBodyProvider(new HUDHandlerMultiRotatable(BlockColoredMultiRotatable.FACE_ROTATION), BlockColoredMultiRotatable.class);
@@ -18,5 +19,5 @@ public class WailaCompat {
 //
 //		registrar.registerBodyProvider(new HUDHandlerRotatable(BlockPlane.HORIZONTAL_ROTATION, "tile.aquaregia:plane.horizontalRotation.desc"), BlockPlane.class);
 //		registrar.registerBodyProvider(new HUDHandlerVerticalRotatable(BlockPlane.VERTICAL_ROTATION), BlockPlane.class);
-	}
+    }
 }

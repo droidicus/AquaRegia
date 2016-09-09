@@ -8,9 +8,9 @@ import net.minecraftforge.fluids.Fluid;
  * @author droidicus
  */
 
-public class BlockFluidFiniteFull extends BlockFluidFinite{
+public class BlockFluidFiniteFull extends BlockFluidFinite {
     public BlockFluidFiniteFull(Fluid fluid, Material material) {
         super(fluid, material);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, quantaPerBlock-1));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LEVEL, quantaPerBlock - 1));
     }
 }
