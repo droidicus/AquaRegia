@@ -82,7 +82,6 @@ public class ShapelessNBTRecipe extends ShapelessOreRecipe {
     }
 
     protected boolean itemMatches(ItemStack required, ItemStack present) {
-        //TODO: Fix cheated buckets not working
         return OreDictionary.itemMatches(required, present, false) && ItemStack.areItemStackTagsEqual(required, present);
     }
 
