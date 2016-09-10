@@ -17,6 +17,7 @@ import net.minecraftforge.oredict.RecipeSorter;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static net.minecraftforge.oredict.RecipeSorter.Category.SHAPELESS;
 
@@ -59,14 +60,16 @@ public class ModRecipes {
      * Add this mod's crafting recipes.
      */
     private static void addCraftingRecipes() {
-        //TODO: Re-evaluate when Forge buckets correctly return an empty bucket from recipies https://github.com/MinecraftForge/MinecraftForge/pull/3234
+        // TODO: Re-evaluate when Forge buckets correctly return an empty bucket from recipies https://github.com/MinecraftForge/MinecraftForge/pull/3234
+        // TODO: Should we just use normal water from the beginning?
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
                 //Inputs
                 Items.WATER_BUCKET
         ));
 
-        if (Config.enableGunpowerSulfur) {
+        // Water + the sulfur from gunpowder = Sulfuric Acid
+        if (Config.enableGunpowderSulfur) {
             GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                     UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
                     //Inputs
@@ -77,6 +80,7 @@ public class ModRecipes {
             ));
         }
 
+        // Water + sulfur = Sulfuric Acid
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
                 //Inputs
@@ -84,6 +88,8 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
         ));
 
+        // Sulfuric Acid + Salt = Hydrochloric Acid
+        // Johann Rudolph Glauber process
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HCL),
                 //Inputs
@@ -91,6 +97,8 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
         ));
 
+        // Sulfuric Acid + Niter = Nitric Acid
+        // Laboratory synthesis process
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3),
                 //Inputs
@@ -99,6 +107,8 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
         ));
 
+        // 3x Hydrochloric Acid + 1x Nitric Acid = Aqua Regia!
+        // In Molar quantities
         //TODO: This loses 3 buckets, do we want it that way, or did the acid eat them??? https://github.com/MinecraftForge/MinecraftForge/pull/3234
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL),
@@ -109,15 +119,18 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3)
         ));
 
+        // Aqua Regia + Gold Ingots (configurable amount) = Chloroauric Acid
+        // TODO: can this be less hacky?
+        Object[] recipeIns = new Object[1 + Math.min(8, Config.goldPrecPerOre)];
+        recipeIns[0] = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL);
+        IntStream.rangeClosed(1, Math.min(8, Config.goldPrecPerOre)).forEach(i -> recipeIns[i] = "ingotGold");
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
                 //Inputs
-                "ingotGold",
-                "ingotGold",
-                "ingotGold",
-                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
+                recipeIns
         ));
 
+        // Aqua Regia + Gold Ore = Chloroauric Acid
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
                 //Inputs
@@ -125,10 +138,11 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL)
         ));
 
+        // Chloroauric Acid + the sulfur from Gunpowder = Precipitated Gold (configurable amount)
         //TODO: This loses a bucket, did the acid eat it? https://github.com/MinecraftForge/MinecraftForge/pull/3234
-        if (Config.enableGunpowerSulfur) {
+        if (Config.enableGunpowderSulfur) {
             GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
-                    new ItemStack(ModItems.GOLDPRECIP, 3),
+                    new ItemStack(ModItems.GOLDPRECIP, Config.goldPrecPerOre),
                     //Inputs
                     Items.GUNPOWDER,
                     Items.GUNPOWDER,
@@ -137,13 +151,15 @@ public class ModRecipes {
             ));
         }
 
+        // Chloroauric Acid + Sulfur = Precipitated Gold (configurable amount)
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
-                new ItemStack(ModItems.GOLDPRECIP, 3),
+                new ItemStack(ModItems.GOLDPRECIP, Config.goldPrecPerOre),
                 //Inputs
                 "dustSulfur",
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4)
         ));
 
+        // Smelting Gold Precipitate = Gold Ingot!
         GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
 
 //		//TODO: simple test for bucket being returned
