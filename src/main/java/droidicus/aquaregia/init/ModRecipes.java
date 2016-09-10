@@ -119,11 +119,17 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3)
         ));
 
-        // Aqua Regia + Gold Ingots (configurable amount) = Chloroauric Acid
+        // Aqua Regia + Gold Ingots/Dusts (configurable amount) = Chloroauric Acid
         // TODO: can this be less hacky?
         Object[] recipeIns = new Object[1 + Math.min(8, Config.goldPrecPerOre)];
         recipeIns[0] = UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3HCL);
         IntStream.rangeClosed(1, Math.min(8, Config.goldPrecPerOre)).forEach(i -> recipeIns[i] = "ingotGold");
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
+                //Inputs
+                recipeIns
+        ));
+        IntStream.rangeClosed(1, Math.min(8, Config.goldPrecPerOre)).forEach(i -> recipeIns[i] = "dustGold");
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HAUCL4),
                 //Inputs
