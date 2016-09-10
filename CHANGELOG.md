@@ -5,6 +5,7 @@
 * Corrected OreDict for mod ores
 * Acids will now damage you if you touch them
 * updated colors and alpha of acids
+* Additional config options for acid damages
 
 ###v0.0.1
 * Initial Release
