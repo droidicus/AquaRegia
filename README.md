@@ -11,6 +11,7 @@ This mod is in early Alpha, and as such is not feature complete:
 - More acids will be added
 - Different acids will need to be stored in different kinds of buckets, otherwise they will eat the through the container
 - Acids poured into the world will dissolve rock that they touch until they are neutralized
+- Add processing for Iridium and Platinum
 - Stay tuned for more!
 
 ###Tested with:
