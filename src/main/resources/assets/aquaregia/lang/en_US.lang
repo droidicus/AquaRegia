@@ -62,3 +62,7 @@ aquaregia:face_rotation.left=Left
 aquaregia:vertical_rotation.down=Down
 aquaregia:vertical_rotation.up=Up
 aquaregia:vertical_rotation.side=Side
+
+# Damage and death
+death.attack.aquaregia.acid=%1$s tried to swim in acid
+death.attack.aquaregia.acid.player=%1$s tried to swim in acid to escape %2$s
