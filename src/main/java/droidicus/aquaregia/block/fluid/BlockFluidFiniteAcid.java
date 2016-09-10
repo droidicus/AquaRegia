@@ -19,10 +19,14 @@ import net.minecraftforge.fluids.Fluid;
 public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     public DamageSource acidDamageSource = new DamageSource("aquaregia.acid");
     private float damageFromAcid = 0;
+    private int witherDuration;
+    private int witherLevel;
 
-    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn) {
+    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn, int duration, int level) {
         super(fluid, material);
         damageFromAcid = damageIn;
+        witherDuration = duration;
+        witherLevel = level;
     }
 
     @Override
@@ -33,7 +37,7 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
             if (damageFromAcid > 0.0F) {
                 entityIn.attackEntityFrom(acidDamageSource, damageFromAcid);
             } else if (damageFromAcid == -1.0F) {
-                ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, 30*20, 1));
+                ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, witherDuration, witherLevel));
             }
         }
     }

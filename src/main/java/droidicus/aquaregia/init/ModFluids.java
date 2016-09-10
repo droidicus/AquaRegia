@@ -3,6 +3,7 @@ package droidicus.aquaregia.init;
 import droidicus.aquaregia.AquaRegia;
 import droidicus.aquaregia.block.fluid.BlockFluidFiniteAcid;
 import droidicus.aquaregia.block.fluid.FluidAcid;
+import droidicus.aquaregia.config.Config;
 import droidicus.aquaregia.util.Constants;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -40,31 +41,31 @@ public class ModFluids {
     static {
         NEUTRAL = createFluidAcid("neutral", true, 0xc0ffffff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 0.0F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 0.0F, 0, 0));
 
         H2SO4 = createFluidAcid("h2so4", true, 0xc0a5ffff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 2.0F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.h2sofAcidDamage, 0, 0));
 
         HAUCL4 = createFluidAcid("haucl4", true, 0xc0ffffa5,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 0.5F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.haucl4AcidDamage, 0, 0));
 
         HCL = createFluidAcid("hcl", true, 0xc0ffa5ff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 1.0F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.hclAcidDamage, 0, 0));
 
         HF = createFluidAcid("hf", true, 0xc03a4bc8,//0xc04040ff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), -1.0F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.hfAcidDamage, Config.hfWitherDuration, Config.hfWitherLevel));
 
         HNO3 = createFluidAcid("hno3", true, 0xc0a5a5ff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 1.5F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.hno3AcidDamage, 0, 0));
 
         HNO3HCL = createFluidAcid("hno3hcl", true, 0xc0ffa5a5,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 1.0F));
+                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), Config.hno3hclAcidDamage, 0, 0));
     }
 
     public static void registerFluids() {

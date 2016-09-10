@@ -15,6 +15,14 @@ public class Config {
     public static int saltPerChunk;
     public static int sulfurPerChunk;
     public static int goldPrecPerOre;
+    public static float h2sofAcidDamage;
+    public static float hclAcidDamage;
+    public static float hno3AcidDamage;
+    public static float hno3hclAcidDamage;
+    public static float haucl4AcidDamage;
+    public static float hfAcidDamage;
+    public static int hfWitherLevel;
+    public static int hfWitherDuration;
 
     static Configuration config;
 
@@ -28,10 +36,19 @@ public class Config {
     private static void reloadConfig() {
         enableOreGen = config.getBoolean("enableOreGen", Configuration.CATEGORY_GENERAL, true, "Enable Ore Generation for this mod.", LANG_PREFIX + "enableOreGen");
         enableGunpowderSulfur = config.getBoolean("enableGunpowderSulfur", Configuration.CATEGORY_GENERAL, true, "Enable using gunpowder in place of sulfur (3 for 1).", LANG_PREFIX + "enableGunpowderSulfur");
-        niterPerChunk = config.getInt("niterPerChunk", Configuration.CATEGORY_GENERAL, 20, 0, Integer.MAX_VALUE, "Number of Niter Oreveins per chunk", LANG_PREFIX + "niterPerChunk");
+        niterPerChunk = config.getInt("niterPerChunk", Configuration.CATEGORY_GENERAL, 20, 0, Integer.MAX_VALUE, "Number of Niter Ore veins per chunk", LANG_PREFIX + "niterPerChunk");
         saltPerChunk = config.getInt("saltPerChunk", Configuration.CATEGORY_GENERAL, 32, 0, Integer.MAX_VALUE, "Number of Salt Ore veins per chunk", LANG_PREFIX + "saltPerChunk");
         sulfurPerChunk = config.getInt("sulfurPerChunk", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Number of Sulfur Ore veins per chunk", LANG_PREFIX + "sulfurPerChunk");
         goldPrecPerOre = config.getInt("goldPrecPerOre", Configuration.CATEGORY_GENERAL, 3, 0, 64, "Number of gold precipitate generated per ore processed", LANG_PREFIX + "goldPrecPerOre");
+
+        h2sofAcidDamage = config.getFloat("h2sofAcidDamage", Configuration.CATEGORY_GENERAL, 2.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Sulfuric Acid", LANG_PREFIX + "h2sofAcidDamage");
+        hclAcidDamage = config.getFloat("hclAcidDamage", Configuration.CATEGORY_GENERAL, 1.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Hydrochloric Acid", LANG_PREFIX + "hclAcidDamage");
+        hno3AcidDamage = config.getFloat("hno3AcidDamage", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Nitric Acid", LANG_PREFIX + "hno3AcidDamage");
+        hno3hclAcidDamage = config.getFloat("hno3hclAcidDamage", Configuration.CATEGORY_GENERAL, 1.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Aqua Regia", LANG_PREFIX + "hno3hclAcidDamage");
+        haucl4AcidDamage = config.getFloat("haucl4AcidDamage", Configuration.CATEGORY_GENERAL, 0.5F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Chloroauric Acid", LANG_PREFIX + "haucl4AcidDamage");
+        hfAcidDamage = config.getFloat("hfAcidDamage", Configuration.CATEGORY_GENERAL, -1.0F, -1.0F, Float.MAX_VALUE, "Damage done per hit by Hydroflouric Acid, set to -1.0 to enable wither effect instead", LANG_PREFIX + "hfAcidDamage");
+        hfWitherLevel = config.getInt("hfWitherLevel", Configuration.CATEGORY_GENERAL, 1, 1, 10, "Level of Wither debuff placed by Hydrofluoric Acid", LANG_PREFIX + "hfWitherLevel");
+        hfWitherDuration = config.getInt("hfWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts", LANG_PREFIX + "hfWitherDuration");
 
         if (config.hasChanged()) {
             config.save();
