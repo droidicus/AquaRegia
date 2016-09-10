@@ -162,6 +162,22 @@ public class ModRecipes {
         // Smelting Gold Precipitate = Gold Ingot!
         GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
 
+        // Aqua Regia + Lapis Lazuli = Hydroflouric Acid
+        // This is "Minecraft chemistry", not based on the real world!
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HF),
+                //Inputs
+                "gemLapis",
+                "gemLapis",
+                "gemLapis",
+                "gemLapis",
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                "gemLapis",
+                "gemLapis",
+                "gemLapis",
+                "gemLapis"
+        ));
+
 //		//TODO: simple test for bucket being returned
 //		GameRegistry.addShapelessRecipe(
 //				new ItemStack(Items.GUNPOWDER),
