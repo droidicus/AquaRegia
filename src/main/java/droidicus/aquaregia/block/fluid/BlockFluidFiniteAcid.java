@@ -54,26 +54,32 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     // Dissolve blocks that are in contact with the acid
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        super.updateTick(worldIn, pos, state, rand);
-
+        boolean validBlock = true;
         if (Config.acidDissolvesBlocks) {
+            //randomly dissolve a block and reduce fluid stack size by 1
             BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
-            if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
+            if ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK)) {
                 worldIn.setBlockToAir(dissolvePos);
                 this.triggerDissolveEffects(worldIn, dissolvePos);
-                this.changeQuantaValue(worldIn, pos, state, -1);
+                validBlock = this.changeQuantaValue(worldIn, pos, state, -1);
             }
+        }
+
+        if (validBlock) { //if the block is still acid and not air
+            super.updateTick(worldIn, pos, state, rand);
         }
     }
 
-    protected void changeQuantaValue(World worldIn, BlockPos pos, IBlockState state, int change) {
+    protected boolean changeQuantaValue(World worldIn, BlockPos pos, IBlockState state, int change) {
         int beforeQuant = state.getValue(LEVEL);
         int afterQuant = beforeQuant + change;
 
         if (afterQuant < 0) {
             worldIn.setBlockToAir(pos);
+            return false;
         } else {
             worldIn.setBlockState(pos, state.withProperty(LEVEL, afterQuant), 2);
+            return true;
         }
     }
 
