@@ -23,6 +23,7 @@ public class Config {
     public static float hfAcidDamage;
     public static int hfWitherLevel;
     public static int hfWitherDuration;
+    public static boolean acidDissolvesBlocks;
 
     static Configuration config;
 
@@ -49,6 +50,7 @@ public class Config {
         hfAcidDamage = config.getFloat("hfAcidDamage", Configuration.CATEGORY_GENERAL, -1.0F, -1.0F, Float.MAX_VALUE, "Damage done per hit by Hydroflouric Acid, set to -1.0 to enable wither effect instead", LANG_PREFIX + "hfAcidDamage");
         hfWitherLevel = config.getInt("hfWitherLevel", Configuration.CATEGORY_GENERAL, 1, 1, 10, "Level of Wither debuff placed by Hydrofluoric Acid", LANG_PREFIX + "hfWitherLevel");
         hfWitherDuration = config.getInt("hfWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts", LANG_PREFIX + "hfWitherDuration");
+        acidDissolvesBlocks = config.getBoolean("acidDissolvesBlocks", Configuration.CATEGORY_GENERAL, true, "Enable acids dissolving blocks of incompatible types.", LANG_PREFIX + "acidDissolvesBlocks");
 
         if (config.hasChanged()) {
             config.save();

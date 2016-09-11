@@ -1,5 +1,6 @@
 package droidicus.aquaregia.block.fluid;
 
+import droidicus.aquaregia.config.Config;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -55,12 +56,13 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         super.updateTick(worldIn, pos, state, rand);
 
-        BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
-
-        if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
-            worldIn.setBlockToAir(dissolvePos);
-            this.triggerDissolveEffects(worldIn, dissolvePos);
-            this.changeQuantaValue(worldIn, pos, state, -1);
+        if (Config.acidDissolvesBlocks) {
+            BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
+            if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
+                worldIn.setBlockToAir(dissolvePos);
+                this.triggerDissolveEffects(worldIn, dissolvePos);
+                this.changeQuantaValue(worldIn, pos, state, -1);
+            }
         }
     }
 
