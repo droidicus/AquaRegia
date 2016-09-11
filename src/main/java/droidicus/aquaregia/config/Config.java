@@ -24,6 +24,7 @@ public class Config {
     public static int hfWitherLevel;
     public static int hfWitherDuration;
     public static boolean acidDissolvesBlocks;
+    public static float acidDissolvesResistance;
 
     static Configuration config;
 
@@ -51,6 +52,7 @@ public class Config {
         hfWitherLevel = config.getInt("hfWitherLevel", Configuration.CATEGORY_GENERAL, 1, 1, 10, "Level of Wither debuff placed by Hydrofluoric Acid", LANG_PREFIX + "hfWitherLevel");
         hfWitherDuration = config.getInt("hfWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts", LANG_PREFIX + "hfWitherDuration");
         acidDissolvesBlocks = config.getBoolean("acidDissolvesBlocks", Configuration.CATEGORY_GENERAL, true, "Enable acids dissolving blocks of incompatible types.", LANG_PREFIX + "acidDissolvesBlocks");
+        acidDissolvesResistance = config.getFloat("acidDissolvesResistance", Configuration.CATEGORY_GENERAL, 125.0F, 0.0F, Float.MAX_VALUE, "Explosion Resistance of block that will prevent acid from dissolving it", LANG_PREFIX + "acidDissolvesResistance");
 
         if (config.hasChanged()) {
             config.save();

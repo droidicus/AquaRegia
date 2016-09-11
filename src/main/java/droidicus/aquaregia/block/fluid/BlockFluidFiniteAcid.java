@@ -58,7 +58,8 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         if (Config.acidDissolvesBlocks) {
             //randomly dissolve a block and reduce fluid stack size by 1
             BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
-            if ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK)) {
+            if ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) &&
+                    (worldIn.getBlockState(dissolvePos).getBlock().getExplosionResistance(null) < Config.acidDissolvesResistance)) {
                 worldIn.setBlockToAir(dissolvePos);
                 this.triggerDissolveEffects(worldIn, dissolvePos);
                 validBlock = this.changeQuantaValue(worldIn, pos, state, -1);
