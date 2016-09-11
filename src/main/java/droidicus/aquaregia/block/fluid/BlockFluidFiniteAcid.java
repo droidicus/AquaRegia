@@ -1,12 +1,10 @@
 package droidicus.aquaregia.block.fluid;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.potion.PotionEffect;
@@ -15,9 +13,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
+
+import java.util.Random;
 
 /**
  * Created by droidicus.
@@ -51,89 +50,28 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         }
     }
 
-    // Disolve blocks around the acid if they are Dissolvable
+    // Dissolve blocks that are in contact with the acid
     @Override
-    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
-        super.onBlockAdded(worldIn, pos, state);
-        this.checkForDissolve(worldIn, pos, state);
-    }
-    @Override
-    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn) {
-        super.neighborChanged(state, worldIn, pos, blockIn);
-        this.checkForDissolve(worldIn, pos, state);
-    }
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        super.updateTick(worldIn, pos, state, rand);
 
-    protected boolean checkForDissolve(World worldIn, BlockPos pos, IBlockState state) {
-        boolean flag = false;
-        int thisQuant = ((Integer) state.getValue(LEVEL)).intValue() + 1;//this.getQuantaValue(worldIn, pos);
+        BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
 
-        // TODO: Make this better!
-        for (EnumFacing face : EnumFacing.VALUES) {
-            if ((face != EnumFacing.DOWN) && (face != EnumFacing.UP) &&
-                    (worldIn.getBlockState(pos.offset(face)).getMaterial() == Material.ROCK)) {
-                BlockPos dissolvePos = pos.offset(face);
-                worldIn.setBlockToAir(dissolvePos);
-                this.triggerDissolveEffects(worldIn, dissolvePos);
-                thisQuant -= 1;
-                this.setQuantaValue(worldIn, pos, thisQuant);
-                flag = true;
-            }
+        if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
+            worldIn.setBlockToAir(dissolvePos);
+            this.triggerDissolveEffects(worldIn, dissolvePos);
+            this.changeQuantaValue(worldIn, pos, state, -1);
         }
-
-//            if (((thisQuant == 0) && (face == EnumFacing.DOWN)) ||
-//                    (((thisQuant >= 1) &&((face != EnumFacing.UP) && (face != EnumFacing.DOWN) &&
-//                    worldIn.getBlockState(pos.offset(face)).getMaterial() == Material.ROCK)))) {
-//                BlockPos dissolvePos = pos.offset(face);
-//                worldIn.setBlockToAir(dissolvePos);
-//                this.triggerDissolveEffects(worldIn, dissolvePos);
-//                thisQuant -= 1;
-//                this.setQuantaValue(worldIn, pos, thisQuant);
-//                flag = true;
-//            }
-//            switch (face) {
-//                case NORTH:
-//                case SOUTH:
-//                case EAST:
-//                case WEST:
-//                    BlockPos dissolvePos = pos.offset(face);
-//                    if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
-//                        worldIn.setBlockToAir(dissolvePos);
-//                        this.triggerDissolveEffects(worldIn, dissolvePos);
-//                        this.setQuantaValue(worldIn, pos, thisQuant - 1);
-//                        flag = true;
-//                    }
-//                    break;
-//                case UP:
-//                case DOWN:
-//                default:
-//                    break;
-//            }
-//
-//            if (0 == thisQuant) {
-//                break;
-//            }
-//        }
-//
-//        if (!flag) {
-//            BlockPos dissolvePos = pos.offset(EnumFacing.DOWN);
-//            if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
-//                worldIn.setBlockToAir(dissolvePos);
-//                this.triggerDissolveEffects(worldIn, dissolvePos);
-//                thisQuant -= 1;
-//                this.setQuantaValue(worldIn, pos, thisQuant);
-//                flag = true;
-//            }
-//        }
-
-        return flag;
     }
 
-    protected void setQuantaValue(World worldIn, BlockPos pos, int quant) {
-        if (quant < 1) {
+    protected void changeQuantaValue(World worldIn, BlockPos pos, IBlockState state, int change) {
+        int beforeQuant = state.getValue(LEVEL);
+        int afterQuant = beforeQuant + change;
+
+        if (afterQuant < 0) {
             worldIn.setBlockToAir(pos);
         } else {
-            IBlockState state = worldIn.getBlockState(pos);
-            worldIn.setBlockState(pos, state.withProperty(LEVEL, quant-1), 2);
+            worldIn.setBlockState(pos, state.withProperty(LEVEL, afterQuant), 2);
         }
     }
 
