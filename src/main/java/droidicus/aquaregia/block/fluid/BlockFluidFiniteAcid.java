@@ -15,6 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
 
@@ -63,40 +64,77 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     }
 
     protected boolean checkForDissolve(World worldIn, BlockPos pos, IBlockState state) {
+        boolean flag = false;
+        int thisQuant = ((Integer) state.getValue(LEVEL)).intValue() + 1;//this.getQuantaValue(worldIn, pos);
+
+        // TODO: Make this better!
         for (EnumFacing face : EnumFacing.VALUES) {
-
-        }
-
-        if(this.blockMaterial == Material.LAVA) {
-            boolean flag = false;
-            EnumFacing[] integer = EnumFacing.values();
-            int var6 = integer.length;
-
-            for(int var7 = 0; var7 < var6; ++var7) {
-                EnumFacing enumfacing = integer[var7];
-                if(enumfacing != EnumFacing.DOWN && worldIn.getBlockState(pos.offset(enumfacing)).getMaterial() == Material.WATER) {
-                    flag = true;
-                    break;
-                }
-            }
-
-            if(flag) {
-                Integer var9 = (Integer)state.getValue(LEVEL);
-                if(var9.intValue() == 0) {
-                    worldIn.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState());
-                    this.triggerDissolveEffects(worldIn, pos);
-                    return true;
-                }
-
-                if(var9.intValue() <= 4) {
-                    worldIn.setBlockState(pos, Blocks.COBBLESTONE.getDefaultState());
-                    this.triggerDissolveEffects(worldIn, pos);
-                    return true;
-                }
+            if ((face != EnumFacing.DOWN) && (face != EnumFacing.UP) &&
+                    (worldIn.getBlockState(pos.offset(face)).getMaterial() == Material.ROCK)) {
+                BlockPos dissolvePos = pos.offset(face);
+                worldIn.setBlockToAir(dissolvePos);
+                this.triggerDissolveEffects(worldIn, dissolvePos);
+                thisQuant -= 1;
+                this.setQuantaValue(worldIn, pos, thisQuant);
+                flag = true;
             }
         }
 
-        return false;
+//            if (((thisQuant == 0) && (face == EnumFacing.DOWN)) ||
+//                    (((thisQuant >= 1) &&((face != EnumFacing.UP) && (face != EnumFacing.DOWN) &&
+//                    worldIn.getBlockState(pos.offset(face)).getMaterial() == Material.ROCK)))) {
+//                BlockPos dissolvePos = pos.offset(face);
+//                worldIn.setBlockToAir(dissolvePos);
+//                this.triggerDissolveEffects(worldIn, dissolvePos);
+//                thisQuant -= 1;
+//                this.setQuantaValue(worldIn, pos, thisQuant);
+//                flag = true;
+//            }
+//            switch (face) {
+//                case NORTH:
+//                case SOUTH:
+//                case EAST:
+//                case WEST:
+//                    BlockPos dissolvePos = pos.offset(face);
+//                    if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
+//                        worldIn.setBlockToAir(dissolvePos);
+//                        this.triggerDissolveEffects(worldIn, dissolvePos);
+//                        this.setQuantaValue(worldIn, pos, thisQuant - 1);
+//                        flag = true;
+//                    }
+//                    break;
+//                case UP:
+//                case DOWN:
+//                default:
+//                    break;
+//            }
+//
+//            if (0 == thisQuant) {
+//                break;
+//            }
+//        }
+//
+//        if (!flag) {
+//            BlockPos dissolvePos = pos.offset(EnumFacing.DOWN);
+//            if (worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) {
+//                worldIn.setBlockToAir(dissolvePos);
+//                this.triggerDissolveEffects(worldIn, dissolvePos);
+//                thisQuant -= 1;
+//                this.setQuantaValue(worldIn, pos, thisQuant);
+//                flag = true;
+//            }
+//        }
+
+        return flag;
+    }
+
+    protected void setQuantaValue(World worldIn, BlockPos pos, int quant) {
+        if (quant < 1) {
+            worldIn.setBlockToAir(pos);
+        } else {
+            IBlockState state = worldIn.getBlockState(pos);
+            worldIn.setBlockState(pos, state.withProperty(LEVEL, quant-1), 2);
+        }
     }
 
     protected void triggerDissolveEffects(World worldIn, BlockPos pos) {
