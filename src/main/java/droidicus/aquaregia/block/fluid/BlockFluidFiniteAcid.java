@@ -29,12 +29,14 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     private float damageFromAcid = 0;
     private int witherDuration;
     private int witherLevel;
+    private boolean attackSilica;
 
-    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn, int duration, int level) {
+    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn, int withDuration, int withLevel, boolean attackSil) {
         super(fluid, material);
         damageFromAcid = damageIn;
-        witherDuration = duration;
-        witherLevel = level;
+        witherDuration = withDuration;
+        witherLevel = withLevel;
+        attackSilica = attackSil;
     }
 
     // Burn any entity silly enough to go for a swim
@@ -58,7 +60,7 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         if (Config.acidDissolvesBlocks) {
             //randomly dissolve a block and reduce fluid stack size by 1
             BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
-            if ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK) &&
+            if (incompatibleBlock(worldIn, dissolvePos) &&
                     (worldIn.getBlockState(dissolvePos).getBlock().getExplosionResistance(null) < Config.acidDissolvesResistance)) {
                 worldIn.setBlockToAir(dissolvePos);
                 this.triggerDissolveEffects(worldIn, dissolvePos);
@@ -93,6 +95,17 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         for(int i = 0; i < 8; ++i) {
             worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + Math.random(), d1 + 1.2D, d2 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
         }
+    }
 
+    protected boolean incompatibleBlock(World worldIn, BlockPos dissolvePos) {
+        if (this.attackSilica) {
+            return ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.SAND) ||
+                    (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GROUND) ||
+                    (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GRASS) ||
+                    (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GLASS) ||
+                    (worldIn.getBlockState(dissolvePos).getMaterial() == Material.CLAY));
+        } else {
+            return worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK;
+        }
     }
 }
