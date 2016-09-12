@@ -1,5 +1,8 @@
 #Aqua Regia Change Log
 
+###v0.0.4
+* 
+
 ###v0.0.3
 * Acids will now dissolve incompatible blocks, depending on the type of acid
 
