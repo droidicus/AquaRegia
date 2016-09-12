@@ -1,5 +1,8 @@
 #Aqua Regia Change Log
 
+###v0.0.3
+* Acids will now dissolve incompatible blocks, depending on the type of acid
+
 ###v0.0.2
 * Fixed issues with JEI, below, by updating to JEI v3.9.0.248
 * Corrected OreDict for mod ores
