@@ -106,6 +106,13 @@ public class ModRecipes {
                 "dustSaltpeter",
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
         ));
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HNO3),
+                //Inputs
+                "dustNiter",
+                "dustNiter",
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4)
+        ));
 
         // 3x Hydrochloric Acid + 1x Nitric Acid = Aqua Regia!
         // In Molar quantities

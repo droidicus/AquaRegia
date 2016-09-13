@@ -19,7 +19,7 @@ public class ModItems {
 
     static {
         SULFUR = registerItemOreDict(new ItemAquaRegia("sulfur"), "dustSulfur");
-        NITER = registerItemOreDict(new ItemAquaRegia("niter"), "dustSaltpeter");
+        NITER = registerItemOreDict(new ItemAquaRegia("niter"), new String[]{"dustSaltpeter", "dustNiter"});
         SALT = registerItemOreDict(new ItemAquaRegia("salt"), "dustSalt");
         GOLDPRECIP = registerItemOreDict(new ItemAquaRegia("goldprecip"), "dustGold");
     }
@@ -53,6 +53,15 @@ public class ModItems {
     private static <T extends Item> T registerItemOreDict(T item, String dictName) {
         registerItem(item);
         OreDictionary.registerOre(dictName, item);
+
+        return item;
+    }
+    private static <T extends Item> T registerItemOreDict(T item, String[] dictNames) {
+        registerItem(item);
+
+        for (String dictName : dictNames) {
+            OreDictionary.registerOre(dictName, item);
+        }
 
         return item;
     }
