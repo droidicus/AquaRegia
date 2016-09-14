@@ -9,6 +9,8 @@ fluid.hf=Hydrofluoric Acid
 fluid.hno3=Nitric Acid
 fluid.hno3hcl=Aqua Regia
 fluid.neutral=Neutral Water
+fluid.hso3f=Fluorosulfuric Acid
+fluid.h2fsbf6=Fluoroantimonic Acid ***VERY DANGEROUS***
 
 # Blocks
 tile.aquaregia:fluid.h2so4.name=Sulfuric Acid
@@ -18,6 +20,8 @@ tile.aquaregia:fluid.hf.name=Hydrofluoric Acid
 tile.aquaregia:fluid.hno3.name=Nitric Acid
 tile.aquaregia:fluid.hno3hcl.name=Aqua Regia
 tile.aquaregia:fluid.neutral.name=Neutral Water
+tile.aquaregia:fluid.hso3f.name=Fluorosulfuric Acid
+tile.aquaregia:fluid.h2fsbf6.name=Fluoroantimonic Acid ***VERY DANGEROUS***
 tile.aquaregia:oreniter.name=Niter Ore
 tile.aquaregia:oresalt.name=Salt Ore
 tile.aquaregia:oresulfur.name=Sulfur Ore
