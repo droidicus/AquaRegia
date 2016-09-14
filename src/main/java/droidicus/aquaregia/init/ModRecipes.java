@@ -176,7 +176,7 @@ public class ModRecipes {
         GameRegistry.addSmelting(ModItems.GOLDPRECIP, new ItemStack(Items.GOLD_INGOT), 1.0f);
 
         // Aqua Regia + Lapis Lazuli = Hydroflouric Acid
-        // This is "Minecraft chemistry", not based on the real world!
+        // The recipe is "Minecraft chemistry", not based on the real world!
         GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HF),
                 //Inputs
@@ -189,6 +189,34 @@ public class ModRecipes {
                 "gemLapis",
                 "gemLapis",
                 "gemLapis"
+        ));
+
+        // H2SO4 + HF = Fluorosulfuric acid
+        // This is a very powerful "Super Acid" IRL
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HSO3F),
+                //Inputs
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HF),
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HF)
+        ));
+
+        // HSO3F + lots 'o nether stars = Fluoroantimonic acid
+        // This is a very powerful "Super Acid" IRL, the most powerful acid known
+        // The recipe is "Minecraft chemistry", not based on the real world!
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2FSBF6),
+                //Inputs
+                Items.NETHER_STAR,
+                Items.NETHER_STAR,
+                Items.NETHER_STAR,
+                Items.NETHER_STAR,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.HSO3F),
+                Items.NETHER_STAR,
+                Items.NETHER_STAR,
+                Items.NETHER_STAR,
+                Items.NETHER_STAR
         ));
 
 //		//TODO: simple test for bucket being returned
