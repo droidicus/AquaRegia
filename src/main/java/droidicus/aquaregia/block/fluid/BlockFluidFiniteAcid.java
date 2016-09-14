@@ -113,7 +113,6 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         }
         if (this.attackRock) {
             isIncompat |= worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK;
-            Material.
         }
 
         return isIncompat;

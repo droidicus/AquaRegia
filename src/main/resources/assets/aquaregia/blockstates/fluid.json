@@ -53,6 +53,20 @@
 					"fluid": "hno3hcl"
 				}
 			}
+		],
+		"hso3f": [
+			{
+				"custom": {
+					"fluid": "hso3f"
+				}
+			}
+		],
+		"h2fsbf6": [
+			{
+				"custom": {
+					"fluid": "h2fsbf6"
+				}
+			}
 		]
 	}
 }
