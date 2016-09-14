@@ -31,7 +31,7 @@ public class ModBlocks {
     public static final BlockOreSulfur BLOCK_ORE_SULFUR;
 
     static {
-        BLOCK_ORE_NITER = registerBlockOreDict(new BlockOreNiter(), "oreSaltpeter");
+        BLOCK_ORE_NITER = registerBlockOreDict(new BlockOreNiter(), new String[] {"oreNiter", "oreSaltpeter"});
         BLOCK_ORE_SALT = registerBlockOreDict(new BlockOreSalt(), "oreSalt");
         BLOCK_ORE_SULFUR = registerBlockOreDict(new BlockOreSulfur(), "oreSulfur");
     }
@@ -62,6 +62,13 @@ public class ModBlocks {
         final BLOCK itemBlock = registerBlock(block);
         OreDictionary.registerOre(dictName, itemBlock);
 
+        return itemBlock;
+    }
+    protected static <BLOCK extends Block> BLOCK registerBlockOreDict(BLOCK block, String[] dictNames) {
+        final BLOCK itemBlock = registerBlock(block);
+        for (String dictName : dictNames) {
+            OreDictionary.registerOre(dictName, itemBlock);
+        }
         return itemBlock;
     }
 
