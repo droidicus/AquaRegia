@@ -15,7 +15,7 @@ public class Config {
     public static int saltPerChunk;
     public static int sulfurPerChunk;
     public static int goldPrecPerOre;
-    public static float h2sofAcidDamage;
+    public static float h2so4AcidDamage;
     public static float hclAcidDamage;
     public static float hno3AcidDamage;
     public static float hno3hclAcidDamage;
@@ -23,8 +23,17 @@ public class Config {
     public static float hfAcidDamage;
     public static int hfWitherLevel;
     public static int hfWitherDuration;
+    public static float hso3fAcidDamage;
+    public static int hso3fWitherLevel;
+    public static int hso3fWitherDuration;
+    public static float h2fsbf6AcidDamage;
+    public static int h2fsbf6WitherLevel;
+    public static int h2fsbf6WitherDuration;
+    public static boolean enableSuperAcid;
     public static boolean acidDissolvesBlocks;
     public static float acidDissolvesResistance;
+    public static float superAcidDissolvesResistance;
+    public static int superAcidSpreadFactor;
 
     static Configuration config;
 
@@ -43,16 +52,26 @@ public class Config {
         sulfurPerChunk = config.getInt("sulfurPerChunk", Configuration.CATEGORY_GENERAL, 10, 0, Integer.MAX_VALUE, "Number of Sulfur Ore veins per chunk", LANG_PREFIX + "sulfurPerChunk");
         goldPrecPerOre = config.getInt("goldPrecPerOre", Configuration.CATEGORY_GENERAL, 3, 0, 64, "Number of gold precipitate generated per ore processed", LANG_PREFIX + "goldPrecPerOre");
 
-        h2sofAcidDamage = config.getFloat("h2sofAcidDamage", Configuration.CATEGORY_GENERAL, 2.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Sulfuric Acid", LANG_PREFIX + "h2sofAcidDamage");
+        h2so4AcidDamage = config.getFloat("h2so4AcidDamage", Configuration.CATEGORY_GENERAL, 2.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Sulfuric Acid", LANG_PREFIX + "h2so4AcidDamage");
         hclAcidDamage = config.getFloat("hclAcidDamage", Configuration.CATEGORY_GENERAL, 1.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Hydrochloric Acid", LANG_PREFIX + "hclAcidDamage");
         hno3AcidDamage = config.getFloat("hno3AcidDamage", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Nitric Acid", LANG_PREFIX + "hno3AcidDamage");
         hno3hclAcidDamage = config.getFloat("hno3hclAcidDamage", Configuration.CATEGORY_GENERAL, 1.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Aqua Regia", LANG_PREFIX + "hno3hclAcidDamage");
         haucl4AcidDamage = config.getFloat("haucl4AcidDamage", Configuration.CATEGORY_GENERAL, 0.5F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Chloroauric Acid", LANG_PREFIX + "haucl4AcidDamage");
-        hfAcidDamage = config.getFloat("hfAcidDamage", Configuration.CATEGORY_GENERAL, -1.0F, -1.0F, Float.MAX_VALUE, "Damage done per hit by Hydroflouric Acid, set to -1.0 to enable wither effect instead", LANG_PREFIX + "hfAcidDamage");
+        hfAcidDamage = config.getFloat("hfAcidDamage", Configuration.CATEGORY_GENERAL, 0.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Hydroflouric Acid", LANG_PREFIX + "hfAcidDamage");
         hfWitherLevel = config.getInt("hfWitherLevel", Configuration.CATEGORY_GENERAL, 1, 1, 10, "Level of Wither debuff placed by Hydrofluoric Acid", LANG_PREFIX + "hfWitherLevel");
-        hfWitherDuration = config.getInt("hfWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts", LANG_PREFIX + "hfWitherDuration");
+        hfWitherDuration = config.getInt("hfWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts for by Hydrofluoric Acid", LANG_PREFIX + "hfWitherDuration");
+        hso3fAcidDamage = config.getFloat("hso3fAcidDamage", Configuration.CATEGORY_GENERAL, 2.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Fluorosulfuric Acid", LANG_PREFIX + "hso3fAcidDamage");
+        hso3fWitherLevel = config.getInt("hso3fWitherLevel", Configuration.CATEGORY_GENERAL, 1, 1, 10, "Level of Wither debuff placed by Fluorosulfuric Acid", LANG_PREFIX + "hso3fWitherLevel");
+        hso3fWitherDuration = config.getInt("hso3fWitherDuration", Configuration.CATEGORY_GENERAL, 600, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts for by Fluorosulfuric Acid", LANG_PREFIX + "hso3fWitherDuration");
+        h2fsbf6AcidDamage = config.getFloat("h2fsbf6AcidDamage", Configuration.CATEGORY_GENERAL, 20.0F, 0.0F, Float.MAX_VALUE, "Damage done per hit by Fluoroantimonic Acid" , LANG_PREFIX + "h2fsbf6AcidDamage");
+        h2fsbf6WitherLevel = config.getInt("h2fsbf6WitherLevel", Configuration.CATEGORY_GENERAL, 5, 1, 10, "Level of Wither debuff placed by Fluoroantimonic Acid", LANG_PREFIX + "h2fsbf6WitherLevel");
+        h2fsbf6WitherDuration = config.getInt("h2fsbf6WitherDuration", Configuration.CATEGORY_GENERAL, 1200, 1, Integer.MAX_VALUE, "Number of ticks that wither effect lasts for by Fluoroantimonic Acid", LANG_PREFIX + "h2fsbf6WitherDuration");
+
+        enableSuperAcid = config.getBoolean("enableSuperAcid", Configuration.CATEGORY_GENERAL, true, "Enable the VERY DANGEROUS Super Acids!", LANG_PREFIX + "enableSuperAcid");
         acidDissolvesBlocks = config.getBoolean("acidDissolvesBlocks", Configuration.CATEGORY_GENERAL, true, "Enable acids dissolving blocks of incompatible types.", LANG_PREFIX + "acidDissolvesBlocks");
         acidDissolvesResistance = config.getFloat("acidDissolvesResistance", Configuration.CATEGORY_GENERAL, 8.0F, 0.0F, Float.MAX_VALUE, "Explosion Resistance of block that will prevent acid from dissolving it", LANG_PREFIX + "acidDissolvesResistance");
+        superAcidDissolvesResistance = config.getFloat("superAcidDissolvesResistance", Configuration.CATEGORY_GENERAL, 2000.0F, 0.0F, Float.MAX_VALUE, "Explosion Resistance of block that will prevent Super Acid from dissolving it", LANG_PREFIX + "superAcidDissolvesResistance");
+        superAcidSpreadFactor = config.getInt("superAcidSpreadFactor", Configuration.CATEGORY_GENERAL, 1, -1, Integer.MAX_VALUE, "How much super acid spreads, -1 is like normal acid, 0 is no reduction when dissolving, 1 is some spread, 2 or more is potentially WORLD ENDING!", LANG_PREFIX + "superAcidSpreadFactor");;
 
         if (config.hasChanged()) {
             config.save();

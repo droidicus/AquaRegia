@@ -30,13 +30,17 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     private int witherDuration;
     private int witherLevel;
     private boolean attackSilica;
+    private boolean attackRock;
+    protected float acidResistance;
 
-    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn, int withDuration, int withLevel, boolean attackSil) {
+    public BlockFluidFiniteAcid(Fluid fluid, Material material, float damageIn, int withDuration, int withLevel, boolean attackSil, boolean attackRoc) {
         super(fluid, material);
         damageFromAcid = damageIn;
         witherDuration = withDuration;
         witherLevel = withLevel;
         attackSilica = attackSil;
+        attackRock = attackRoc;
+        acidResistance = Config.acidDissolvesResistance;
     }
 
     // Burn any entity silly enough to go for a swim
@@ -47,7 +51,8 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
         if (entityIn instanceof EntityLivingBase) {
             if (damageFromAcid > 0.0F) {
                 entityIn.attackEntityFrom(acidDamageSource, damageFromAcid);
-            } else if (damageFromAcid == -1.0F) {
+            }
+            if (witherLevel > 0) {
                 ((EntityLivingBase)entityIn).addPotionEffect(new PotionEffect(MobEffects.WITHER, witherDuration, witherLevel));
             }
         }
@@ -61,7 +66,7 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
             //randomly dissolve a block and reduce fluid stack size by 1
             BlockPos dissolvePos = pos.offset(EnumFacing.random(rand));
             if (incompatibleBlock(worldIn, dissolvePos) &&
-                    (worldIn.getBlockState(dissolvePos).getBlock().getExplosionResistance(null) < Config.acidDissolvesResistance)) {
+                    (worldIn.getBlockState(dissolvePos).getBlock().getExplosionResistance(null) < acidResistance)) {
                 worldIn.setBlockToAir(dissolvePos);
                 this.triggerDissolveEffects(worldIn, dissolvePos);
                 validBlock = this.changeQuantaValue(worldIn, pos, state, -1);
@@ -98,14 +103,19 @@ public class BlockFluidFiniteAcid extends BlockFluidFiniteFull {
     }
 
     protected boolean incompatibleBlock(World worldIn, BlockPos dissolvePos) {
+        boolean isIncompat = false;
         if (this.attackSilica) {
-            return ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.SAND) ||
+            isIncompat |= ((worldIn.getBlockState(dissolvePos).getMaterial() == Material.SAND) ||
                     (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GROUND) ||
                     (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GRASS) ||
                     (worldIn.getBlockState(dissolvePos).getMaterial() == Material.GLASS) ||
                     (worldIn.getBlockState(dissolvePos).getMaterial() == Material.CLAY));
-        } else {
-            return worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK;
         }
+        if (this.attackRock) {
+            isIncompat |= worldIn.getBlockState(dissolvePos).getMaterial() == Material.ROCK;
+            Material.
+        }
+
+        return isIncompat;
     }
 }
