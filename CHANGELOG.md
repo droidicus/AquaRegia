@@ -1,7 +1,8 @@
 #Aqua Regia Change Log
 
 ###v0.0.4
-* 
+* Adding two Super Acids, ***WARNING*** These are SUPER DANGEROUS! They can also be disabled or modified in the configs
+* Updated oreDict entries for Niter
 
 ###v0.0.3
 * Acids will now dissolve incompatible blocks, depending on the type of acid
