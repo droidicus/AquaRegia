@@ -1,5 +1,8 @@
 #Aqua Regia Change Log
 
+###v0.0.5
+* 
+
 ###v0.0.4
 * Adding two Super Acids, ***WARNING*** These are SUPER DANGEROUS! They can also be disabled or modified in the configs
 * Updated oreDict entries for Niter
