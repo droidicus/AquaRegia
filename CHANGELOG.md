@@ -1,7 +1,8 @@
 #Aqua Regia Change Log
 
-###v0.0.5
-* 
+###v0.1.0
+* Updating Forge and JEI deps
+* First Beta Release!
 
 ###v0.0.4
 * Adding two Super Acids, ***WARNING*** These are SUPER DANGEROUS! They can also be disabled or modified in the configs
