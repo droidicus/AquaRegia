@@ -8,16 +8,14 @@ First, mine some Salt, Sulfur, and Niter. The ores will be available in any biom
 
 ###Future Work:
 This mod is in early Alpha, and as such is not feature complete:
-- More acids will be added
 - Different acids will need to be stored in different kinds of buckets, otherwise they will eat the through the container
-- Acids poured into the world will dissolve rock that they touch until they are neutralized
 - Add processing for Iridium and Platinum
 - Stay tuned for more!
 
 ###Tested with:
 - Minecraft 1.10.2
-- Forge v12.18.1.2076
-- JEI v3.9.0.248
+- Forge v12.18.1.2087
+- JEI v3.9.3.253
 
 #Licenses
 Code, Textures and binaries are licensed under the MIT License.
