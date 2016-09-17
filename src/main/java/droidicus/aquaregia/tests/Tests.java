@@ -11,7 +11,7 @@ public class Tests {
 
         allTestsPassed = OreDictUtilTests.INSTANCE.test();
         //		NBTTagEndTests.INSTANCE.test();
-        allTestsPassed &= HttpClientTests.INSTANCE.test();
+//        allTestsPassed &= HttpClientTests.INSTANCE.test();
 
         return allTestsPassed;
     }

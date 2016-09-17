@@ -52,25 +52,25 @@ repositories {
 
 dependencies {
     deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}"
-    compile "org.apache.httpcomponents:fluent-hc:${httpclient_version}"
+//    compile "org.apache.httpcomponents:fluent-hc:${httpclient_version}"
     deobfProvided "mcp.mobius.waila:Waila:${waila_version}_1.9.4"
 }
 
-shadowJar {
-    // Only shadow fluent-hc
-    dependencies {
-        include(dependency('org.apache.httpcomponents:fluent-hc:.*'))
-    }
-
-    // Relocate fluent-hc to prevent conflicts with other mods that include it
-    relocate 'org.apache.http.client.fluent', 'droidicus.aquaregia.repack.org.apache.http.client.fluent'
-
-    classifier '' // Replace the default JAR
-}
-
-reobf {
-    shadowJar {} // Reobfuscate the shadowed JAR
-}
+//shadowJar {
+//    // Only shadow fluent-hc
+//    dependencies {
+//        include(dependency('org.apache.httpcomponents:fluent-hc:.*'))
+//    }
+//
+//    // Relocate fluent-hc to prevent conflicts with other mods that include it
+//    relocate 'org.apache.http.client.fluent', 'droidicus.aquaregia.repack.org.apache.http.client.fluent'
+//
+//    classifier '' // Replace the default JAR
+//}
+//
+//reobf {
+//    shadowJar {} // Reobfuscate the shadowed JAR
+//}
 
 processResources {
     // this will ensure that this task is redone when the versions change.
