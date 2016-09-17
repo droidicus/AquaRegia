@@ -1,5 +1,8 @@
 #Aqua Regia Change Log
 
+###v0.1.1
+* Removing Apache HTTP library, was causing a server startup crash in some cases and is was unused
+
 ###v0.1.0
 * Updating Forge and JEI deps
 * First Beta Release!
