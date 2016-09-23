@@ -5,7 +5,7 @@ package droidicus.aquaregia;
 import droidicus.aquaregia.config.Config;
 import droidicus.aquaregia.init.*;
 import droidicus.aquaregia.proxy.IProxy;
-import droidicus.aquaregia.remap.Remapper;
+//import droidicus.aquaregia.remap.Remapper;
 import droidicus.aquaregia.tests.Tests;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -103,6 +103,6 @@ public class AquaRegia {
 
     @EventHandler
     public void missingMapings(FMLMissingMappingsEvent event) {
-        Remapper.remap(event.get());
+//        Remapper.remap(event.get());
     }
 }
