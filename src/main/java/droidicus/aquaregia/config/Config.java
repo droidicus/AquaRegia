@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Config {
     static final String LANG_PREFIX = AquaRegia.MODID + ".config.";
+    public static boolean enableNeutralWater;
     public static boolean enableOreGen;
     public static boolean enableGunpowderSulfur;
     public static int niterPerChunk;
@@ -45,6 +46,7 @@ public class Config {
     }
 
     private static void reloadConfig() {
+        enableNeutralWater = config.getBoolean("enableNeutralWater", Configuration.CATEGORY_GENERAL, false, "Enable Neutral Water.", LANG_PREFIX + "enableNeutralWater");
         enableOreGen = config.getBoolean("enableOreGen", Configuration.CATEGORY_GENERAL, true, "Enable Ore Generation for this mod.", LANG_PREFIX + "enableOreGen");
         enableGunpowderSulfur = config.getBoolean("enableGunpowderSulfur", Configuration.CATEGORY_GENERAL, true, "Enable using gunpowder in place of sulfur (3 for 1).", LANG_PREFIX + "enableGunpowderSulfur");
         niterPerChunk = config.getInt("niterPerChunk", Configuration.CATEGORY_GENERAL, 20, 0, Integer.MAX_VALUE, "Number of Niter Ore veins per chunk", LANG_PREFIX + "niterPerChunk");

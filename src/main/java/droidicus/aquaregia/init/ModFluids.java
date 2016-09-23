@@ -42,9 +42,13 @@ public class ModFluids {
     public static final Set<IFluidBlock> MOD_FLUID_BLOCKS = new HashSet<>();
 
     static {
-        NEUTRAL = createFluidAcid("neutral", true, 0xc0ffffff,
-                fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
-                fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 0.0F, 0, 0, false, false));
+        if (Config.enableNeutralWater) {
+            NEUTRAL = createFluidAcid("neutral", true, 0xc0ffffff,
+                    fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),
+                    fluid -> new BlockFluidFiniteAcid(fluid, new MaterialLiquid(MapColor.WATER), 0.0F, 0, 0, false, false));
+        } else {
+            NEUTRAL = null;
+        }
 
         H2SO4 = createFluidAcid("h2so4", true, 0xc0a5ffff,
                 fluid -> fluid.setLuminosity(0).setDensity(1000).setViscosity(1000),

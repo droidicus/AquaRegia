@@ -61,12 +61,39 @@ public class ModRecipes {
      */
     private static void addCraftingRecipes() {
         // TODO: Re-evaluate when Forge buckets correctly return an empty bucket from recipies https://github.com/MinecraftForge/MinecraftForge/pull/3234
-        // TODO: Should we just use normal water from the beginning?
-        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
-                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
-                //Inputs
-                Items.WATER_BUCKET
-        ));
+        if (Config.enableNeutralWater) {
+            // Water -> Neutral Water
+            GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
+                    //Inputs
+                    Items.WATER_BUCKET
+            ));
+            GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL),
+                    //Inputs
+                    "listAllwater"
+            ));
+
+            // Neutral Water + the sulfur from gunpowder = Sulfuric Acid
+            if (Config.enableGunpowderSulfur) {
+                GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                        UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                        //Inputs
+                        Items.GUNPOWDER,
+                        Items.GUNPOWDER,
+                        Items.GUNPOWDER,
+                        UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+                ));
+            }
+
+            // Neutral Water + sulfur = Sulfuric Acid
+            GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                    //Inputs
+                    "dustSulfur",
+                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+            ));
+        }
 
         // Water + the sulfur from gunpowder = Sulfuric Acid
         if (Config.enableGunpowderSulfur) {
@@ -76,7 +103,15 @@ public class ModRecipes {
                     Items.GUNPOWDER,
                     Items.GUNPOWDER,
                     Items.GUNPOWDER,
-                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+                    Items.WATER_BUCKET
+            ));
+            GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                    UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                    //Inputs
+                    Items.GUNPOWDER,
+                    Items.GUNPOWDER,
+                    Items.GUNPOWDER,
+                    "listAllwater"
             ));
         }
 
@@ -85,7 +120,13 @@ public class ModRecipes {
                 UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
                 //Inputs
                 "dustSulfur",
-                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.NEUTRAL)
+                Items.WATER_BUCKET
+        ));
+        GameRegistry.addRecipe(new ShapelessNBTRecipe(false,
+                UniversalBucket.getFilledBucket(ForgeModContainer.getInstance().universalBucket, ModFluids.H2SO4),
+                //Inputs
+                "dustSulfur",
+                "listAllwater"
         ));
 
         // Sulfuric Acid + Salt = Hydrochloric Acid
